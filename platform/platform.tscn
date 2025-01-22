@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://diylur7volu7j"]
+
+[ext_resource type="Script" path="res://platform/platform.gd" id="1_ges2p"]
+[ext_resource type="Texture2D" uid="uid://h40nkgpmih0h" path="res://assets/panel.png" id="1_q8n5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh2ea"]
+size = Vector2(128, 13)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgnf5"]
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac4mv"]
+size = Vector2(128, 29)
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_ges2p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_q8n5r")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_gh2ea")
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_sgnf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_ac4mv")
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
