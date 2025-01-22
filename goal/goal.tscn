@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://deb4ccl8wguj8"]
+
+[ext_resource type="Texture2D" uid="uid://8ms5f7uvx6i6" path="res://assets/goal.png" id="1_vcq7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk4cc"]
+size = Vector2(64, 128)
+
+[node name="Goal" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vk4cc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_vcq7y")
