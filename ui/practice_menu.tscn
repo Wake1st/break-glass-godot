@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://hejv5a6iyj7e"]
+[gd_scene load_steps=3 format=3 uid="uid://hejv5a6iyj7e"]
 
+[ext_resource type="Script" path="res://ui/practice_menu.gd" id="1_ss66m"]
 [ext_resource type="PackedScene" uid="uid://bhof4a8f1hxf2" path="res://ui/practice_stage.tscn" id="1_vbpi7"]
 
 [node name="PracticeMenu" type="Panel"]
@@ -15,6 +16,7 @@ offset_right = 300.0
 offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ss66m")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
@@ -71,3 +73,5 @@ layout_mode = 2
 
 [node name="PracticeStage_4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
 layout_mode = 2
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

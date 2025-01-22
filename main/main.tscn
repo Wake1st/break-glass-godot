@@ -1,3 +1,55 @@
-[gd_scene format=3 uid="uid://cmumsdf3nd4u7"]
+[gd_scene load_steps=6 format=3 uid="uid://cmumsdf3nd4u7"]
+
+[ext_resource type="Script" path="res://main/main.gd" id="1_075jk"]
+[ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/main_menu.tscn" id="2_64sp3"]
+[ext_resource type="PackedScene" uid="uid://bm43hytbyufwc" path="res://ui/settings_menu.tscn" id="3_r8b4b"]
+[ext_resource type="PackedScene" uid="uid://m35jtq8jrbbc" path="res://ui/play_menu.tscn" id="4_ixsxk"]
+[ext_resource type="PackedScene" uid="uid://hejv5a6iyj7e" path="res://ui/practice_menu.tscn" id="5_rt8fq"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_075jk")
+
+[node name="LevelRoot" type="Node2D" parent="."]
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="UIRoot/CenterContainer" instance=ExtResource("2_64sp3")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SettingsMenu" parent="UIRoot/CenterContainer" instance=ExtResource("3_r8b4b")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="PlayMenu" parent="UIRoot/CenterContainer" instance=ExtResource("4_ixsxk")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="PracticeMenu" parent="UIRoot/CenterContainer" instance=ExtResource("5_rt8fq")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2

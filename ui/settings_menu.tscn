@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bm43hytbyufwc"]
+[gd_scene load_steps=2 format=3 uid="uid://bm43hytbyufwc"]
+
+[ext_resource type="Script" path="res://ui/settings_menu.gd" id="1_8iebn"]
 
 [node name="SettingsMenu" type="Panel"]
 custom_minimum_size = Vector2(400, 400)
@@ -13,6 +15,7 @@ offset_right = 200.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8iebn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,3 +51,5 @@ custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Return"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]
