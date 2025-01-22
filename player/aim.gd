@@ -13,6 +13,7 @@ var isIncreasing: bool = true
 
 
 func launch() -> Vector2:
+    print("aiming at: %s" % aimAt)
     var impulse = aimAt.normalized() * magnitude
 
     # reset the values
@@ -25,7 +26,7 @@ func launch() -> Vector2:
 
 func update(delta: float, point: Vector2) -> void:
     # update the aimAt
-    aimAt = point
+    aimAt = point - global_position
 
     # update the magnitude
     var delta_magnitude = MAGNITUDE_RATE * delta

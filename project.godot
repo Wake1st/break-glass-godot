@@ -33,6 +33,12 @@ flip={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Detection"
+2d_physics/layer_2="Boundary"
+2d_physics/layer_3="Goal"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -6,7 +6,7 @@ const MAX_DURABILITY: float = 400
 signal platform_broken()
 
 @onready var detection:Area2D = $Detection
-@onready var boundaryShape:CollisionShape2D = $Boundary/CollisionShape2D
+@onready var boundary:StaticBody2D = $Boundary
 
 var durability:float = MAX_DURABILITY
 
@@ -21,9 +21,12 @@ func _on_detection_body_entered(body:Node2D) -> void:
 
 			if durability < 0:
 				break_glass()
+			else:
+				player.surfaceForward = global_transform.x.angle()
+
 
 
 func break_glass() -> void:
-	set_deferred("boundaryShape.disabled", true)
+	# boundary.call_deferred("queue_free")
 	platform_broken.emit()
 	print("glass broken")
