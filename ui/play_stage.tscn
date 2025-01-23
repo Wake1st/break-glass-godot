@@ -36,6 +36,7 @@ vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 32
 
 [node name="Panel" type="Panel" parent="MarginContainer/HBoxContainer"]
@@ -43,6 +44,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_j5m1p")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/HBoxContainer"]
@@ -50,6 +52,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_j5m1p")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/HBoxContainer"]
@@ -57,6 +60,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_j5m1p")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/HBoxContainer"]
@@ -64,4 +68,5 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_j5m1p")

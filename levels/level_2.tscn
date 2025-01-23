@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfnsylubi66wt"]
+[gd_scene load_steps=6 format=3 uid="uid://bfnsylubi66wt"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_5d3xg"]
 [ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://platform/platform.tscn" id="1_utrgk"]
 [ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://player/player.tscn" id="2_c0xhi"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://platform/start.tscn" id="2_jv212"]
 [ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://goal/goal.tscn" id="3_feucw"]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_5d3xg")
 
-[node name="Platform" parent="." instance=ExtResource("1_utrgk")]
+[node name="Start" parent="." instance=ExtResource("2_jv212")]
 
 [node name="Platform2" parent="." instance=ExtResource("1_utrgk")]
 position = Vector2(400, 50)
 
 [node name="Player" parent="." instance=ExtResource("2_c0xhi")]
+position = Vector2(0, 2)
 
 [node name="Goal" parent="." instance=ExtResource("3_feucw")]
 position = Vector2(800, 100)

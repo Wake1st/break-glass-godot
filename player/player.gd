@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 const GRAVITY: float = 9.0
-const IMPULSE_BOOST: float = 90.0
+const IMPULSE_BOOST: float = 120.0
 const ANIMATION_ANGLE: float = PI/4
 
 @onready var aim: Aim = $Aim

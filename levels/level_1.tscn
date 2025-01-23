@@ -1,21 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://inf3vb82fm82"]
+[gd_scene load_steps=6 format=3 uid="uid://inf3vb82fm82"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_n7fpd"]
 [ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://platform/platform.tscn" id="1_wamu0"]
 [ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://player/player.tscn" id="1_x8rmr"]
 [ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://goal/goal.tscn" id="2_auo2n"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://platform/start.tscn" id="2_ej0qu"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_n7fpd")
 
-[node name="Panel" parent="." instance=ExtResource("1_wamu0")]
-position = Vector2(0, 2)
+[node name="Start" parent="." instance=ExtResource("2_ej0qu")]
 
 [node name="Panel2" parent="." instance=ExtResource("1_wamu0")]
 position = Vector2(224, -129)
 rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("1_x8rmr")]
+position = Vector2(0, 3)
 
 [node name="Goal" parent="." instance=ExtResource("2_auo2n")]
 position = Vector2(451, -1.99997)

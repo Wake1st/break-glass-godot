@@ -19,12 +19,13 @@ grow_vertical = 2
 script = ExtResource("1_ss66m")
 
 [node name="Title" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 0
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 383.0
-offset_bottom = 99.0
-theme_override_font_sizes/font_size = 48
+offset_right = 390.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 42
 text = "Practice Selection"
 horizontal_alignment = 1
 vertical_alignment = 1

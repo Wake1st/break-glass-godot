@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://jvk44jgaptay"]
+
+[ext_resource type="Texture2D" uid="uid://h40nkgpmih0h" path="res://assets/panel.png" id="2_dbt44"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgnf5"]
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac4mv"]
+size = Vector2(128, 29)
+
+[node name="Start" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_dbt44")
+
+[node name="Boundary" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+physics_material_override = SubResource("PhysicsMaterial_sgnf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(0, 17.5)
+shape = SubResource("RectangleShape2D_ac4mv")
