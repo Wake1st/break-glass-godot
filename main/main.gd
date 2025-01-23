@@ -14,8 +14,8 @@ var currentLevel: Level
 var nextLevelId: int
 var levelList: LevelList = LevelList.new()
 
-var highestLevelId: int = 1
-var highestStage: int = 1
+var highestLevelId: int = 0
+var highestStage: int = 0
 
 
 func _ready() -> void:
@@ -28,6 +28,11 @@ func _ready() -> void:
 	settingsMenu.return_selected.connect(handle_return_to_main)
 
 	playMenu.level_selected.connect(handle_level_select)
+	practiceMenu.practice_level_selected.connect(handle_practice_level_select)
+
+	# unlock the first level for practice
+	practice_unlock_check(1)
+
 
 
 func handle_menu_change(sceneName: String) -> void:
@@ -54,8 +59,17 @@ func handle_level_select(scene: PackedScene) -> void:
 	
 	# swap levels
 	currentLevel = setup_level(scene)
+	
+	# disable the current menu
+	currentMenu.visible = false
 
-	currentLevel.visible = true
+
+func handle_practice_level_select(scene:PackedScene) -> void:
+	if currentLevel != null:
+		disconnect_level(currentLevel)
+	
+	# swap levels
+	currentLevel = setup_level(scene, true)
 	
 	# disable the current menu
 	currentMenu.visible = false
@@ -67,18 +81,9 @@ func handle_level_failure() -> void:
 
 
 func handle_next_level(levelId) -> void:
-	nextLevelId = levelId
+	# create a time buffer to avoid "sudden change" shock
+	nextLevelId = levelId + 1
 	endLevelTimer.start()
-	
-	# set the highest level for training
-	if levelId > highestLevelId:
-		highestLevelId = levelId 
-
-	# every 4th level should unlock the next stage
-	var stageCheck: int = ceil(levelId as float / 4.0)
-	if stageCheck > highestStage:
-		highestStage = stageCheck
-		playMenu.enable_stage(stageCheck)
 
 
 func _on_end_timer_timeout() -> void:
@@ -89,7 +94,11 @@ func _on_end_timer_timeout() -> void:
 	var scene = levelList.levels[nextLevelId]
 	currentLevel = setup_level(scene)
 	
-	currentLevel.visible = true
+	# set the highest level for training
+	practice_unlock_check(nextLevelId)
+
+	# every 4th level should unlock the next stage
+	stage_unlock_check(nextLevelId)
 
 
 func disconnect_level(level:Level) -> void:
@@ -99,10 +108,24 @@ func disconnect_level(level:Level) -> void:
 	level.level_failed.disconnect(handle_level_failure)
 
 
-func setup_level(scene:PackedScene) -> Level:
+func setup_level(scene:PackedScene, isPractice: bool = false) -> Level:
 	var level = scene.instantiate()
 	levelRoot.call_deferred("add_child",level)
+	level.set_deferred("isPractice", isPractice)
 	level.level_finished.connect(handle_next_level)
 	level.level_failed.connect(handle_level_failure)
 	level.visible = true
 	return level
+
+
+func practice_unlock_check(id: int) -> void:
+	if id > highestLevelId:
+		highestLevelId = id
+		practiceMenu.enable_practice_level(id)
+
+
+func stage_unlock_check(id: int) -> void:
+	var stageCheck: int = ceil(id as float / 4.0)
+	if stageCheck > highestStage:
+		highestStage = stageCheck
+		playMenu.enable_stage(stageCheck)

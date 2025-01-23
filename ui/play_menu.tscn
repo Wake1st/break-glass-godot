@@ -65,21 +65,25 @@ alignment = 2
 
 [node name="PlayStage_1" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_ry8fm")]
 layout_mode = 2
+stageName = "Fear"
 
 [node name="PlayStage_2" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_ry8fm")]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
+stageName = "Horror"
 
 [node name="PlayStage_3" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_ry8fm")]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
+stageName = "Terror"
 
 [node name="PlayStage_4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_ry8fm")]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
+stageName = "Dread"
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayStage_1" to="." method="_on_play_stage_1_pressed"]

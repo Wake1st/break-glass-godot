@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://hejv5a6iyj7e"]
+[gd_scene load_steps=8 format=3 uid="uid://hejv5a6iyj7e"]
 
 [ext_resource type="Script" path="res://ui/practice_menu.gd" id="1_ss66m"]
 [ext_resource type="PackedScene" uid="uid://bhof4a8f1hxf2" path="res://ui/practice_stage.tscn" id="1_vbpi7"]
+[ext_resource type="PackedScene" uid="uid://inf3vb82fm82" path="res://levels/level_1.tscn" id="3_iw0n7"]
+[ext_resource type="PackedScene" uid="uid://bfnsylubi66wt" path="res://levels/level_2.tscn" id="4_nshb2"]
+[ext_resource type="PackedScene" uid="uid://cxca7gonc2v4h" path="res://levels/level_3.tscn" id="5_mgxmb"]
+[ext_resource type="PackedScene" uid="uid://dqbysdyoubrvt" path="res://levels/level_4.tscn" id="6_ojj6k"]
+[ext_resource type="PackedScene" uid="uid://cu1fnscanp6py" path="res://levels/level_5.tscn" id="7_uc1iy"]
 
 [node name="PracticeMenu" type="Panel"]
 custom_minimum_size = Vector2(600, 540)
@@ -64,15 +69,32 @@ theme_override_constants/separation = 16
 alignment = 2
 
 [node name="PracticeStage_1" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
+unique_name_in_owner = true
 layout_mode = 2
+stageName = "Fear"
+levelAScene = ExtResource("3_iw0n7")
+levelBScene = ExtResource("4_nshb2")
+levelCScene = ExtResource("5_mgxmb")
+levelDScene = ExtResource("6_ojj6k")
 
 [node name="PracticeStage_2" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
+unique_name_in_owner = true
 layout_mode = 2
+stageName = "Horror"
+levelAScene = ExtResource("7_uc1iy")
 
 [node name="PracticeStage_3" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
+unique_name_in_owner = true
 layout_mode = 2
+stageName = "Terror"
 
 [node name="PracticeStage_4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
+unique_name_in_owner = true
 layout_mode = 2
+stageName = "Dread"
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
+[connection signal="practice_level_selected" from="MarginContainer/VBoxContainer/PracticeStage_1" to="." method="_on_practice_level_selected"]
+[connection signal="practice_level_selected" from="MarginContainer/VBoxContainer/PracticeStage_2" to="." method="_on_practice_level_selected"]
+[connection signal="practice_level_selected" from="MarginContainer/VBoxContainer/PracticeStage_3" to="." method="_on_practice_level_selected"]
+[connection signal="practice_level_selected" from="MarginContainer/VBoxContainer/PracticeStage_4" to="." method="_on_practice_level_selected"]

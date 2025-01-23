@@ -2,10 +2,12 @@ class_name Level
 extends Node2D
 
 signal level_failed(currentLevel: int)
-signal level_finished(nextLevel: int)
+signal level_finished(currentLevel: int)
 
 @onready var fallBoundary: FallBoundary = $FallBoundary
 @onready var goal: Goal = $Goal
+
+var isPractice: bool
 
 
 func _ready() -> void:
@@ -25,4 +27,4 @@ func handle_fall_failure() -> void:
 
 func handle_goal_crossed() -> void:
 	var currentNumber: int = name.right(1) as int
-	level_finished.emit(currentNumber + 1)
+	level_finished.emit(currentNumber)

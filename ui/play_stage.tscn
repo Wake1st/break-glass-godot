@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4dlygfeilxdg"]
+[gd_scene load_steps=4 format=3 uid="uid://4dlygfeilxdg"]
 
 [ext_resource type="Texture2D" uid="uid://db6v058apy61b" path="res://icon.svg" id="1_nhdl4"]
+[ext_resource type="Script" path="res://ui/play_stage.gd" id="1_nld08"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5m1p"]
 texture = ExtResource("1_nhdl4")
@@ -9,6 +10,7 @@ texture = ExtResource("1_nhdl4")
 custom_minimum_size = Vector2(0, 80)
 offset_right = 512.0
 offset_bottom = 80.0
+script = ExtResource("1_nld08")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,6 +30,7 @@ theme_override_constants/separation = 8
 alignment = 2
 
 [node name="Title" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = ":name: Stage"
