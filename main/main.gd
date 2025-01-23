@@ -14,6 +14,9 @@ var currentLevel: Level
 var nextLevelId: int
 var levelList: LevelList = LevelList.new()
 
+var highestLevelId: int = 1
+var highestStage: int = 1
+
 
 func _ready() -> void:
 	# menu setup
@@ -58,9 +61,24 @@ func handle_level_select(scene: PackedScene) -> void:
 	currentMenu.visible = false
 
 
+func handle_level_failure() -> void:
+	disconnect_level(currentLevel)
+	handle_return_to_main()
+
+
 func handle_next_level(levelId) -> void:
 	nextLevelId = levelId
 	endLevelTimer.start()
+	
+	# set the highest level for training
+	if levelId > highestLevelId:
+		highestLevelId = levelId 
+
+	# every 4th level should unlock the next stage
+	var stageCheck: int = ceil(levelId as float / 4.0)
+	if stageCheck > highestStage:
+		highestStage = stageCheck
+		playMenu.enable_stage(stageCheck)
 
 
 func _on_end_timer_timeout() -> void:
@@ -73,18 +91,18 @@ func _on_end_timer_timeout() -> void:
 	
 	currentLevel.visible = true
 
-	# TODO - every 4 levels should unlock a stage
-
 
 func disconnect_level(level:Level) -> void:
 	level.visible = false
 	levelRoot.call_deferred("remove_child", level)
 	level.level_finished.disconnect(handle_next_level)
+	level.level_failed.disconnect(handle_level_failure)
 
 
 func setup_level(scene:PackedScene) -> Level:
 	var level = scene.instantiate()
 	levelRoot.call_deferred("add_child",level)
 	level.level_finished.connect(handle_next_level)
+	level.level_failed.connect(handle_level_failure)
 	level.visible = true
 	return level

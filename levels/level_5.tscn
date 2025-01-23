@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu1fnscanp6py"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_6g7y8"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://platform/start.tscn" id="2_hegy8"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://platform/platform.tscn" id="3_3cc22"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://player/player.tscn" id="4_hl38s"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://goal/goal.tscn" id="5_tncup"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://platform/fall_boundary.tscn" id="6_725lq"]
+
+[node name="Level_5" type="Node2D"]
+script = ExtResource("1_6g7y8")
+
+[node name="Start" parent="." instance=ExtResource("2_hegy8")]
+
+[node name="Panel2" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -700)
+rotation = 1.5708
+
+[node name="Panel3" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(200, -500)
+rotation = -1.5708
+
+[node name="Panel4" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(200, -900)
+rotation = 4.71239
+
+[node name="Panel5" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -1100)
+rotation = 7.85398
+
+[node name="Panel6" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -1500)
+rotation = 1.5708
+
+[node name="Panel7" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(200, -1300)
+rotation = -1.5708
+
+[node name="Panel8" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(200, -1700)
+rotation = 4.71239
+
+[node name="Panel9" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -1900)
+rotation = 7.85398
+
+[node name="Panel10" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -2300)
+rotation = 1.5708
+
+[node name="Panel11" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(200, -2100)
+rotation = -1.5708
+
+[node name="Panel12" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(200, -2500)
+rotation = 4.71239
+
+[node name="Panel13" parent="." instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -2700)
+rotation = 7.85398
+
+[node name="Player" parent="." instance=ExtResource("4_hl38s")]
+position = Vector2(0, 2)
+
+[node name="Goal" parent="." instance=ExtResource("5_tncup")]
+position = Vector2(0, -3040)
+rotation = 1.5708
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_725lq")]
+position = Vector2(0, 600)

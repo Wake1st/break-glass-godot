@@ -5,7 +5,7 @@ var levels: Dictionary = {
     2: load("res://levels/level_2.tscn"),
     3: load("res://levels/level_3.tscn"),
     4: load("res://levels/level_4.tscn"),
-    # 5: load("res://levels/level_5.tscn"),
+    5: load("res://levels/level_5.tscn"),
     # 6: load("res://levels/level_6.tscn"),
     # 7: load("res://levels/level_7.tscn"),
     # 8: load("res://levels/level_8.tscn"),
