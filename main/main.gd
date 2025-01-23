@@ -19,6 +19,9 @@ var highestStage: int = 0
 
 
 func _ready() -> void:
+	# first, pause the game
+	get_tree().paused = true
+
 	# menu setup
 	currentMenu = mainMenu
 	

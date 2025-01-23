@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bl5q7sayobofr"]
+[gd_scene load_steps=4 format=3 uid="uid://dblud0y5ptrek"]
+
+[ext_resource type="Script" path="res://ui/result_menu.gd" id="1_l1kqm"]
+[ext_resource type="PackedScene" uid="uid://duuxoquut6pa5" path="res://ui/result_container.tscn" id="1_r3w12"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43rdi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="LevelMenu" type="Panel"]
+[node name="ResultMenu" type="Panel"]
+process_mode = 2
 custom_minimum_size = Vector2(600, 500)
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,6 +20,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l1kqm")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -25,14 +30,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 56
 text = "LEVEL COMPLETE!"
@@ -41,77 +47,48 @@ vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 48
+theme_override_constants/separation = 32
 
-[node name="TimeContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TimeContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_r3w12")]
+unique_name_in_owner = true
 layout_mode = 2
+label = "Time"
 
-[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/TimeContainer"]
+[node name="GlassContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_r3w12")]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Time"
-vertical_alignment = 1
-
-[node name="ActualTime" type="Label" parent="MarginContainer/VBoxContainer/TimeContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "20.0"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="GlassContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="GlassLabel" type="Label" parent="MarginContainer/VBoxContainer/GlassContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Glass"
-vertical_alignment = 1
-
-[node name="ActualGlass" type="Label" parent="MarginContainer/VBoxContainer/GlassContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "3"
-horizontal_alignment = 2
-vertical_alignment = 1
+label = "Glass"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="ScoreContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ScoreContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_r3w12")]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/ScoreContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Score
-"
-vertical_alignment = 1
-
-[node name="ActualScore" type="Label" parent="MarginContainer/VBoxContainer/ScoreContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "3"
-horizontal_alignment = 2
-vertical_alignment = 1
+label = "Score"
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 32
 
 [node name="ButtonContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_43rdi")
 
 [node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 48
 text = "Menu"
 
 [node name="Next" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 48
 text = "Next"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonContainer/Next" to="." method="_on_next_pressed"]

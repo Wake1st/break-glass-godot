@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bm43hytbyufwc" path="res://ui/settings_menu.tscn" id="3_wwsvl"]
 
 [node name="MainMenu" type="Panel"]
+process_mode = 2
 custom_minimum_size = Vector2(400, 400)
 anchors_preset = 8
 anchor_left = 0.5

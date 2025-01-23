@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://inf3vb82fm82"]
+[gd_scene load_steps=9 format=3 uid="uid://inf3vb82fm82"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_n7fpd"]
 [ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://platform/platform.tscn" id="1_wamu0"]
 [ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://player/player.tscn" id="1_x8rmr"]
 [ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://goal/goal.tscn" id="2_auo2n"]
 [ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://platform/start.tscn" id="2_ej0qu"]
+[ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/failure_menu.tscn" id="6_2enal"]
 [ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://platform/fall_boundary.tscn" id="6_cvupy"]
+[ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/result_menu.tscn" id="7_gsoti"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_n7fpd")
@@ -18,6 +20,14 @@ rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("1_x8rmr")]
 position = Vector2(0, 3)
+
+[node name="FailureMenu" parent="Player" instance=ExtResource("6_2enal")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ResultMenu" parent="Player" instance=ExtResource("7_gsoti")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Goal" parent="." instance=ExtResource("2_auo2n")]
 position = Vector2(451, -1.99997)
