@@ -59,3 +59,4 @@ visible = false
 layout_mode = 2
 
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
+[connection signal="practice_level_selected" from="UIRoot/CenterContainer/PracticeMenu" to="." method="_on_practice_level_selected"]
