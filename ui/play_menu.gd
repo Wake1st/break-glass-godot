@@ -21,7 +21,7 @@ func enable_stage(number: int) -> void:
 
 
 func _on_return_pressed() -> void:
-	menu_selected.emit(Menus.MAIN)
+	menu_selected.emit(Main.MENUS.MAIN)
 
 
 func _on_play_stage_1_pressed() -> void:

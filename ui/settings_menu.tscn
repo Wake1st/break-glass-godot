@@ -3,16 +3,17 @@
 [ext_resource type="Script" path="res://ui/settings_menu.gd" id="1_8iebn"]
 
 [node name="SettingsMenu" type="Panel"]
-custom_minimum_size = Vector2(400, 400)
+process_mode = 2
+custom_minimum_size = Vector2(400, 300)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -200.0
-offset_top = -200.0
+offset_top = -150.0
 offset_right = 200.0
-offset_bottom = 200.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8iebn")
@@ -40,16 +41,16 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Audio" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Audio"
-
 [node name="Return" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Return"
+
+[node name="Audio" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Audio"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Return" to="." method="_on_return_pressed"]

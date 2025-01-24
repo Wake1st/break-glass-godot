@@ -3,7 +3,6 @@ extends Node2D
 
 signal level_finished()
 signal level_failed()
-signal level_quit()
 
 @onready var fallBoundary: FallBoundary = $FallBoundary
 @onready var goal: Goal = $Goal
@@ -11,6 +10,7 @@ signal level_quit()
 
 var endTimer: Timer = Timer.new()
 var currentNumber: int
+var isPractice: bool
 
 
 func _ready() -> void:
@@ -38,7 +38,7 @@ func _input(event: InputEvent) -> void:
 
 func handle_fall_failure() -> void:
 	get_tree().paused = true
-	player.failureMenu.visible = true
+	level_failed.emit()
 
 
 func handle_goal_crossed() -> void:
@@ -47,20 +47,4 @@ func handle_goal_crossed() -> void:
 
 func _on_endtimer_timeout() -> void:
 	get_tree().paused = true
-	player.resultMenu.visible = true
-
-
-func handle_next_selected() -> void:
-	player.resultMenu.visible = false
 	level_finished.emit()
-
-
-func handle_reset_selected() -> void:
-	player.failureMenu.visible = false
-	level_failed.emit()
-
-
-func handle_menu_selected() -> void:
-	player.resultMenu.visible = false
-	player.failureMenu.visible = false
-	level_quit.emit()

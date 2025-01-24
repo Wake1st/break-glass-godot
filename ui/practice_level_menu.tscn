@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://jad3jef1mr0i"]
+[gd_scene load_steps=3 format=3 uid="uid://cvoh7facaktul"]
 
 [ext_resource type="Script" path="res://ui/practice_level_menu.gd" id="1_qskfy"]
-[ext_resource type="StyleBox" uid="uid://cog3w4py5hdys" path="res://ui/button_container_stylebox.tres" id="2_oi5m2"]
+[ext_resource type="StyleBox" path="res://ui/button_container_stylebox.tres" id="2_oi5m2"]
 
 [node name="PracticeLevelMenu" type="Panel"]
+process_mode = 2
 custom_minimum_size = Vector2(640, 330)
 anchors_preset = 8
 anchor_left = 0.5

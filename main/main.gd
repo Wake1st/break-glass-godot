@@ -1,6 +1,18 @@
 class_name Main
 extends Node
 
+
+enum MENUS {
+	MAIN,
+	PLAY,
+	PRACTICE,
+	SETTINGS,
+	RESULT,
+	FAILURE,
+	PRACTICE_RESULT
+}
+
+
 @onready var mainMenu: MainMenu = %MainMenu
 @onready var playMenu: PlayMenu = %PlayMenu
 @onready var practiceMenu: PracticeMenu = %PracticeMenu
@@ -19,9 +31,8 @@ var isPractice: bool
 
 var currentLevelId: int = 1
 var currentStageId: int = 1
-var highestLevelId: int = 1
-var highestStageId: int = 1
-
+var highestLevelId: int = 0
+var highestStageId: int = 0
 
 func _ready() -> void:
 	# first, pause the game
@@ -31,54 +42,74 @@ func _ready() -> void:
 	currentMenu = mainMenu
 	
 	mainMenu.menu_selected.connect(handle_menu_change)
+	settingsMenu.menu_selected.connect(handle_menu_change)
 	playMenu.level_selected.connect(handle_level_select)
 	playMenu.menu_selected.connect(handle_menu_change)
 	practiceMenu.menu_selected.connect(handle_menu_change)
-	settingsMenu.menu_selected.connect(handle_menu_change)
 	practiceMenu.practice_level_selected.connect(handle_practice_level_select)
 	
-	resultMenu.menu_selected.connect(handle_menu_selected)
-	resultMenu.next_selected.connect(handle_next_selected)
-	failureMenu.menu_selected.connect(handle_menu_selected)
-	failureMenu.reset_selected.connect(handle_reset_selected)
-	practiceLevelMenu.menu_selected.connect(handle_menu_selected)
-	#practiceLevelMenu.prev_selected.connect()
-	#practiceLevelMenu.replay_selected.connect()
-	#practiceLevelMenu.next_selected.connect()
+	failureMenu.menu_selected.connect(handle_return_to_menu)
+	failureMenu.reset_selected.connect(handle_reset_stage)
+	resultMenu.menu_selected.connect(handle_return_to_menu)
+	resultMenu.next_selected.connect(handle_next_level)
+	practiceLevelMenu.menu_selected.connect(handle_return_to_menu)
+	practiceLevelMenu.prev_selected.connect(handle_prev_practice_level)
+	practiceLevelMenu.replay_selected.connect(handle_replay_practice_level)
+	practiceLevelMenu.next_selected.connect(handle_next_practice_level)
 	
 	# unlock the first level for practice
 	practice_unlock_check(1)
 
 
-#region Main UI Handlers
+#region UI Navigation
 
-func handle_menu_change(menu: Menus) -> void:
+func handle_menu_change(menu: MENUS) -> void:
 	currentMenu.visible = false
 	
 	# make menu visible
 	match menu:
-		Menus.MAIN: currentMenu = mainMenu
-		Menus.PLAY: currentMenu = playMenu
-		Menus: currentMenu = practiceMenu
-		Menus.SETTINGS: currentMenu = settingsMenu
-		Menus) = resultMenu
-		Menus.FAILURE: currentMenu = failureMenu
-		Menus.PRACTICE_RESULT: currentMenu = practiceLevelMenu
+		MENUS.MAIN: currentMenu = mainMenu
+		MENUS.PLAY: currentMenu = playMenu
+		MENUS.PRACTICE: currentMenu = practiceMenu
+		MENUS.SETTINGS: currentMenu = settingsMenu
+		MENUS.RESULT: currentMenu = resultMenu
+		MENUS.FAILURE: currentMenu = failureMenu
+		MENUS.PRACTICE_RESULT: currentMenu = practiceLevelMenu
 	
 	currentMenu.visible = true
 
 
-func handle_return_to_main() -> void:
-	currentMenu.visible = false
-	currentMenu = mainMenu
-	currentMenu.visible = true
+func handle_menu_selected() -> void:
+	if isPractice:
+		handle_menu_change(MENUS.PRACTICE)
+	else:
+		handle_menu_change(MENUS.PLAY)
 
+
+func handle_level_failed() -> void:
+	if isPractice:
+		handle_menu_change(MENUS.PRACTICE_RESULT)
+	else:
+		handle_menu_change(MENUS.FAILURE)
+
+
+func handle_level_finished() -> void:
+	if isPractice:
+		handle_menu_change(MENUS.PRACTICE_RESULT)
+	else:
+		handle_menu_change(MENUS.RESULT)
+
+#endregion
+
+#region Level Navigation
 
 func handle_level_select(scene: PackedScene) -> void:
+	# disconnect current level
 	if currentLevel != null:
 		disconnect_level()
 	
 	# swap levels
+	isPractice = false
 	setup_level(scene)
 	
 	# disable the current menu
@@ -86,42 +117,26 @@ func handle_level_select(scene: PackedScene) -> void:
 
 
 func handle_practice_level_select(scene:PackedScene) -> void:
+	# disconnect current level
 	if currentLevel != null:
 		disconnect_level()
 	
 	# swap levels
-	setup_level(scene, true)
-	practiceLevelMenu.visible = true
+	isPractice = true
+	setup_level(scene)
 	
 	# disable the current menu
 	currentMenu.visible = false
 
-#endregion
 
-
-func handle_exit_level() -> void:
+func handle_return_to_menu() -> void:
+	# disconnect current level
 	disconnect_level()
 	
 	if isPractice:
-		practiceMenu.visible = true
+		handle_menu_change(MENUS.PRACTICE)
 	else:
-		playMenu.visible = true
-
-
-func handle_level_failed() -> void:
-	if isPractice:
-		practiceLevelMenu.visible = true
-	else:
-		failureMenu.visible = true
-
-
-func handle_level_finished(id: int) -> void:
-	currentLevelId = id
-	
-	if isPractice:
-		practiceLevelMenu.visible = true
-	else:
-		resultMenu.visible = true
+		handle_menu_change(MENUS.PLAY)
 
 
 func handle_reset_stage() -> void:
@@ -131,83 +146,94 @@ func handle_reset_stage() -> void:
 	var levelId = currentStageId * 4 - 3
 	var scene = levelList.levels[levelId]
 	setup_level(scene)
+		
+	# disable the current menu
+	currentMenu.visible = false
 
 
 func handle_next_level() -> void:
-	var nextLevelId = currentLevelId + 1
-	currentLevelId = nextLevelId
-	
 	# disconnect current level
 	disconnect_level()
+
+	print("prev: %s" % currentLevelId)
+	currentLevelId += 1
+	print("next: %s" % currentLevelId)
 	
 	# setup new level
-	var scene = levelList.levels[nextLevelId]
+	var scene = levelList.levels[currentLevelId]
 	setup_level(scene)
 	
 	# set the highest level for training
-	practice_unlock_check(nextLevelId)
+	practice_unlock_check(currentLevelId)
 	
 	# every 4th level should unlock the next stage
-	stage_unlock_check(nextLevelId)
-
-
-func handle_next_selected() -> void:
-	resultMenu.visible = false
-
-
-func handle_reset_selected() -> void:
-	failureMenu.visible = false
-
-
-func handle_menu_selected() -> void:
-	if isPractice:
-		handle_menu_change(Menus.PRACTICE)
-	else:
-		handle_menu_change(Menus.PLAY)
-
-
-func handle_next_practice_level() -> void:
-	var nextLevelId = currentLevelId + 1
-	
-	# disconnect current level
-	disconnect_level()
-	
-	# setup new level
-	var scene = levelList.levels[nextLevelId]
-	setup_level(scene)
+	stage_unlock_check(currentLevelId)
+		
+	# disable the current menu
+	currentMenu.visible = false
 
 
 func handle_prev_practice_level() -> void:
-	var nextLevelId = currentLevelId - 1
+	# disconnect current level
+	disconnect_level()
+
+	currentLevelId -= 1
 	
+	# setup new level
+	var scene = levelList.levels[currentLevelId]
+	setup_level(scene)
+		
+	# disable the current menu
+	currentMenu.visible = false
+
+
+func handle_replay_practice_level() -> void:
 	# disconnect current level
 	disconnect_level()
 	
 	# setup new level
-	var scene = levelList.levels[nextLevelId]
+	var scene = levelList.levels[currentLevelId]
 	setup_level(scene)
+		
+	# disable the current menu
+	currentMenu.visible = false
 
+
+func handle_next_practice_level() -> void:
+	# disconnect current level
+	disconnect_level()
+	
+	currentLevelId += 1
+	
+	# setup new level
+	var scene = levelList.levels[currentLevelId]
+	isPractice = true
+	setup_level(scene)
+		
+	# disable the current menu
+	currentMenu.visible = false
+
+#endregion
+
+#region Helpers
 
 func disconnect_level() -> void:
 	currentLevel.visible = false
 	levelRoot.call_deferred("remove_child", currentLevel)
 	currentLevel.level_finished.disconnect(handle_level_finished)
-	currentLevel.level_failed.disconnect(handle_reset_stage)
-	currentLevel.level_quit.disconnect(handle_exit_level)
+	currentLevel.level_failed.disconnect(handle_level_failed)
 	currentLevel = null
 
 
-func setup_level(scene: PackedScene, isPractice: bool = false) -> void:
+func setup_level(scene: PackedScene) -> void:
 	var level = scene.instantiate()
 	levelRoot.call_deferred("add_child",level)
 	level.level_finished.connect(handle_level_finished)
-	level.level_failed.connect(handle_reset_stage)
-	level.level_quit.connect(handle_exit_level)
+	level.level_failed.connect(handle_level_failed)
 	level.isPractice = isPractice
 	level.visible = true
 	
 	currentLevel = level
-	currentLevelId = level.currentNumber
 
 
 func practice_unlock_check(id: int) -> void:
@@ -222,3 +248,5 @@ func stage_unlock_check(id: int) -> void:
 	if stageCheck > highestStageId:
 		highestStageId = stageCheck
 		playMenu.enable_stage(stageCheck)
+
+#endregion

@@ -3,4 +3,5 @@ extends SubMenu
 
 
 func _on_return_pressed() -> void:
-	menu_selected.emit(Menus.MAIN)
+	print("return selected")
+	menu_selected.emit(Main.MENUS.MAIN)

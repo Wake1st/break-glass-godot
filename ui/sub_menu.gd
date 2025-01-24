@@ -1,4 +1,4 @@
 class_name SubMenu
 extends Panel
 
-signal menu_selected()
+signal menu_selected(menu: Main.MENUS)

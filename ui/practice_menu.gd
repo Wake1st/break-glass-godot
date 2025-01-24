@@ -25,4 +25,4 @@ func _on_practice_level_selected(scene: PackedScene) -> void:
 
 
 func _on_return_pressed() -> void:
-	menu_selected.emit(Menus.MAIN)
+	menu_selected.emit(Main.MENUS.MAIN)
