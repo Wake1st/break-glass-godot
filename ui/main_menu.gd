@@ -2,7 +2,7 @@ class_name MainMenu
 extends Panel
 
 
-signal menu_selected(sceneName: String)
+signal menu_selected(sceneName: Menus)
 
 @export var play_scene: PackedScene
 @export var practice_scene: PackedScene
@@ -10,12 +10,12 @@ signal menu_selected(sceneName: String)
 
 
 func _on_play_pressed() -> void:
-	menu_selected.emit("play")
+	menu_selected.emit(Menus.PLAY)
 
 
 func _on_practice_pressed() -> void:
-	menu_selected.emit("practice")
+	menu_selected.emit(Menus.PRACTICE)
 
 
 func _on_settings_pressed() -> void:
-	menu_selected.emit("settings")
+	menu_selected.emit(Menus.SETTINGS)

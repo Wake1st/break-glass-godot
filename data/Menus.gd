@@ -1,9 +1,10 @@
 class_name Menus
 
-enum NAMES {
+enum {
 	MAIN,
 	PLAY,
 	PRACTICE,
+	SETTINGS,
 	RESULT,
 	FAILURE,
 	PRACTICE_RESULT

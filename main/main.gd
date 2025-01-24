@@ -32,9 +32,9 @@ func _ready() -> void:
 	
 	mainMenu.menu_selected.connect(handle_menu_change)
 	playMenu.level_selected.connect(handle_level_select)
-	playMenu.return_selected.connect(handle_return_to_main)
-	practiceMenu.return_selected.connect(handle_return_to_main)
-	settingsMenu.return_selected.connect(handle_return_to_main)
+	playMenu.menu_selected.connect(handle_menu_change)
+	practiceMenu.menu_selected.connect(handle_menu_change)
+	settingsMenu.menu_selected.connect(handle_menu_change)
 	practiceMenu.practice_level_selected.connect(handle_practice_level_select)
 	
 	resultMenu.menu_selected.connect(handle_menu_selected)
@@ -52,14 +52,18 @@ func _ready() -> void:
 
 #region Main UI Handlers
 
-func handle_menu_change(sceneName: String) -> void:
+func handle_menu_change(menu: Menus) -> void:
 	currentMenu.visible = false
 	
 	# make menu visible
-	match sceneName:
-		"play": currentMenu = playMenu
-		"practice": currentMenu = practiceMenu
-		"settings": currentMenu = settingsMenu
+	match menu:
+		Menus.MAIN: currentMenu = mainMenu
+		Menus.PLAY: currentMenu = playMenu
+		Menus: currentMenu = practiceMenu
+		Menus.SETTINGS: currentMenu = settingsMenu
+		Menus) = resultMenu
+		Menus.FAILURE: currentMenu = failureMenu
+		Menus.PRACTICE_RESULT: currentMenu = practiceLevelMenu
 	
 	currentMenu.visible = true
 
@@ -129,8 +133,8 @@ func handle_reset_stage() -> void:
 	setup_level(scene)
 
 
-func handle_next_level(levelId: int) -> void:
-	var nextLevelId = levelId + 1
+func handle_next_level() -> void:
+	var nextLevelId = currentLevelId + 1
 	currentLevelId = nextLevelId
 	
 	# disconnect current level
@@ -156,8 +160,10 @@ func handle_reset_selected() -> void:
 
 
 func handle_menu_selected() -> void:
-	resultMenu.visible = false
-	failureMenu.visible = false
+	if isPractice:
+		handle_menu_change(Menus.PRACTICE)
+	else:
+		handle_menu_change(Menus.PLAY)
 
 
 func handle_next_practice_level() -> void:
@@ -193,13 +199,15 @@ func disconnect_level() -> void:
 
 func setup_level(scene: PackedScene, isPractice: bool = false) -> void:
 	var level = scene.instantiate()
-	level.isPractice = isPractice
 	levelRoot.call_deferred("add_child",level)
 	level.level_finished.connect(handle_level_finished)
 	level.level_failed.connect(handle_reset_stage)
 	level.level_quit.connect(handle_exit_level)
+	level.isPractice = isPractice
 	level.visible = true
+	
 	currentLevel = level
+	currentLevelId = level.currentNumber
 
 
 func practice_unlock_check(id: int) -> void:
