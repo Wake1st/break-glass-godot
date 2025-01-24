@@ -30,9 +30,13 @@ The CC0 license explicitly does not waive patent rights, but we confirm that we 
 
 This games was made using the [bevy new 2D](https://the-bevy-flock.itch.io/bevy-new-2d) template - check it out!
 
+### Art
+Eli Wakefield
+Joel Wakefield
+
 ### SFX
 [Shapeforms - Dystopia - Ambience & Drone](https://shapeforms.itch.io/shapeforms-audio-free-sfx) 
-
+Joel Wakefield
 
 ### Tools
 Beep Box - <https://www.beepbox.co>
