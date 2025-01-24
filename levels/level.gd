@@ -7,10 +7,9 @@ signal level_quit()
 
 @onready var fallBoundary: FallBoundary = $FallBoundary
 @onready var goal: Goal = $Goal
+@onready var player: Player = $Player
 
-@onready var resultMenu: ResultMenu = %ResultMenu
-@onready var failureMenu: FailureMenu = %FailureMenu
-
+var endTimer: Timer = Timer.new()
 var currentNumber: int
 var isPractice: bool
 
@@ -19,17 +18,22 @@ func _ready() -> void:
 	# unpause the game
 	get_tree().paused = false
 
-	# collect values
+	# setup variables
 	currentNumber = name.right(1) as int
+
+	add_child(endTimer)
+	endTimer.one_shot = true
+	endTimer.wait_time = 0.6
 
 	# connect signals
 	goal.finished.connect(handle_goal_crossed)
 	fallBoundary.passed_fall_boundary.connect(handle_fall_failure)
+	endTimer.timeout.connect(_on_endtimer_timeout)
 
-	resultMenu.menu_selected.connect(handle_menu_selected)
-	resultMenu.next_selected.connect(handle_next_selected)
-	failureMenu.menu_selected.connect(handle_menu_selected)
-	failureMenu.reset_selected.connect(handle_reset_selected)
+	player.resultMenu.menu_selected.connect(handle_menu_selected)
+	player.resultMenu.next_selected.connect(handle_next_selected)
+	player.failureMenu.menu_selected.connect(handle_menu_selected)
+	player.failureMenu.reset_selected.connect(handle_reset_selected)
 
 
 ###	DEV-ONLY: Skips the level 
@@ -39,26 +43,32 @@ func _input(event: InputEvent) -> void:
 
 
 func handle_fall_failure() -> void:
-	failureMenu.visible = true
 	get_tree().paused = true
+	player.failureMenu.visible = true
 
 
 func handle_goal_crossed() -> void:
-	resultMenu.visible = true
+	endTimer.start()
+	print("timer - started")
+
+
+func _on_endtimer_timeout() -> void:
+	print("timer - ended")
 	get_tree().paused = true
+	player.resultMenu.visible = true
 
 
 func handle_next_selected() -> void:
-	resultMenu.visible = false
+	player.resultMenu.visible = false
 	level_finished.emit(currentNumber)
 
 
 func handle_reset_selected() -> void:
-	failureMenu.visible = false
+	player.failureMenu.visible = false
 	level_failed.emit(currentNumber)
 
 
 func handle_menu_selected() -> void:
-	resultMenu.visible = false
-	failureMenu.visisble = false
+	player.resultMenu.visible = false
+	player.failureMenu.visisble = false
 	level_quit.emit()

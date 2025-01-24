@@ -9,10 +9,6 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_075jk")
 
-[node name="EndTimer" type="Timer" parent="."]
-wait_time = 0.8
-one_shot = true
-
 [node name="LevelRoot" type="Node2D" parent="."]
 
 [node name="UIRoot" type="Control" parent="."]
@@ -58,5 +54,4 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
 [connection signal="practice_level_selected" from="UIRoot/CenterContainer/PracticeMenu" to="." method="_on_practice_level_selected"]

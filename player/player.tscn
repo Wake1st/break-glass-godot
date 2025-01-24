@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cryqnjk6ljur4"]
+[gd_scene load_steps=11 format=3 uid="uid://cryqnjk6ljur4"]
 
 [ext_resource type="Texture2D" uid="uid://r0mg3uhxjjd1" path="res://assets/hopper-Sheet-sheet.png" id="1_di721"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_leat7"]
 [ext_resource type="PackedScene" uid="uid://bqv7so7nk8rqp" path="res://player/aim.tscn" id="3_6nnbd"]
+[ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/failure_menu.tscn" id="4_5je8h"]
+[ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/result_menu.tscn" id="5_daqsu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qyey6"]
 
@@ -91,3 +93,16 @@ position = Vector2(0, -14.25)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -200)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+follow_viewport_enabled = true
+
+[node name="FailureMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("4_5je8h")]
+unique_name_in_owner = true
+visible = false
+top_level = true
+
+[node name="ResultMenu" parent="Camera2D/CanvasLayer" instance=ExtResource("5_daqsu")]
+unique_name_in_owner = true
+visible = false
+top_level = true

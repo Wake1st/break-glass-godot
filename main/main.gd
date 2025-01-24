@@ -7,11 +7,9 @@ extends Node
 @onready var settingsMenu: SettingsMenu = %SettingsMenu
 
 @onready var levelRoot: Node2D = $LevelRoot
-@onready var endLevelTimer: Timer = $EndTimer
 
 var currentMenu: Panel
 var currentLevel: Level
-var nextLevelId: int
 var levelList: LevelList = LevelList.new()
 
 var highestLevelId: int = 0
@@ -78,18 +76,15 @@ func handle_practice_level_select(scene:PackedScene) -> void:
 	currentMenu.visible = false
 
 
-func handle_level_failure() -> void:
+func handle_exit_level() -> void:
 	disconnect_level(currentLevel)
 	handle_return_to_main()
 
 
 func handle_next_level(levelId) -> void:
 	# create a time buffer to avoid "sudden change" shock
-	nextLevelId = levelId + 1
-	endLevelTimer.start()
-
-
-func _on_end_timer_timeout() -> void:
+	var nextLevelId = levelId + 1
+	
 	# disconnect current level
 	disconnect_level(currentLevel)
 
@@ -108,7 +103,8 @@ func disconnect_level(level:Level) -> void:
 	level.visible = false
 	levelRoot.call_deferred("remove_child", level)
 	level.level_finished.disconnect(handle_next_level)
-	level.level_failed.disconnect(handle_level_failure)
+	level.level_failed.disconnect(handle_exit_level)
+	level.level_quit.disconnect(handle_exit_level)
 
 
 func setup_level(scene:PackedScene, isPractice: bool = false) -> Level:
@@ -116,7 +112,8 @@ func setup_level(scene:PackedScene, isPractice: bool = false) -> Level:
 	levelRoot.call_deferred("add_child",level)
 	level.set_deferred("isPractice", isPractice)
 	level.level_finished.connect(handle_next_level)
-	level.level_failed.connect(handle_level_failure)
+	level.level_failed.connect(handle_exit_level)
+	level.level_quit.connect(handle_exit_level)
 	level.visible = true
 	return level
 
