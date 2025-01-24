@@ -34,6 +34,7 @@ var currentStageId: int = 1
 var highestLevelId: int = 0
 var highestStageId: int = 0
 
+
 func _ready() -> void:
 	# first, pause the game
 	get_tree().paused = true

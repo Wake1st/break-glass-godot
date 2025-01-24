@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc6qnmfrc335n"]
 
-[ext_resource type="Script" path="res://platform/fall_boundary.gd" id="1_3yxnw"]
+[ext_resource type="Script" path="res://levels/components/fall_boundary.gd" id="1_3yxnw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fkco6"]
 

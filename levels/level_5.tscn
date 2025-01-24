@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cu1fnscanp6py"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_6g7y8"]
-[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://platform/start.tscn" id="2_hegy8"]
-[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://platform/platform.tscn" id="3_3cc22"]
-[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://player/player.tscn" id="4_hl38s"]
-[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://goal/goal.tscn" id="5_tncup"]
-[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://platform/fall_boundary.tscn" id="6_725lq"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_hegy8"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_3cc22"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_hl38s"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_tncup"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_725lq"]
 
 [node name="Level_5" type="Node2D"]
 script = ExtResource("1_6g7y8")
