@@ -1,8 +1,8 @@
 class_name Level
 extends Node2D
 
-signal level_failed(currentLevel: int)
 signal level_finished(currentLevel: int)
+signal level_failed()
 signal level_quit()
 
 @onready var fallBoundary: FallBoundary = $FallBoundary
@@ -49,11 +49,9 @@ func handle_fall_failure() -> void:
 
 func handle_goal_crossed() -> void:
 	endTimer.start()
-	print("timer - started")
 
 
 func _on_endtimer_timeout() -> void:
-	print("timer - ended")
 	get_tree().paused = true
 	player.resultMenu.visible = true
 
@@ -65,10 +63,10 @@ func handle_next_selected() -> void:
 
 func handle_reset_selected() -> void:
 	player.failureMenu.visible = false
-	level_failed.emit(currentNumber)
+	level_failed.emit()
 
 
 func handle_menu_selected() -> void:
 	player.resultMenu.visible = false
-	player.failureMenu.visisble = false
+	player.failureMenu.visible = false
 	level_quit.emit()

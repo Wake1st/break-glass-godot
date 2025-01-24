@@ -13,7 +13,8 @@ var currentLevel: Level
 var levelList: LevelList = LevelList.new()
 
 var highestLevelId: int = 0
-var highestStage: int = 0
+var highestStageId: int = 0
+var currentStageId: int = 0
 
 
 func _ready() -> void:
@@ -81,6 +82,15 @@ func handle_exit_level() -> void:
 	handle_return_to_main()
 
 
+func handle_reset_stage() -> void:
+	disconnect_level(currentLevel)
+	
+	# reset at the beginning of the stage
+	var levelId = currentStageId * 4 - 3
+	var scene = levelList.levels[levelId]
+	currentLevel = setup_level(scene)
+
+
 func handle_next_level(levelId) -> void:
 	# create a time buffer to avoid "sudden change" shock
 	var nextLevelId = levelId + 1
@@ -103,7 +113,7 @@ func disconnect_level(level:Level) -> void:
 	level.visible = false
 	levelRoot.call_deferred("remove_child", level)
 	level.level_finished.disconnect(handle_next_level)
-	level.level_failed.disconnect(handle_exit_level)
+	level.level_failed.disconnect(handle_reset_stage)
 	level.level_quit.disconnect(handle_exit_level)
 
 
@@ -112,7 +122,7 @@ func setup_level(scene:PackedScene, isPractice: bool = false) -> Level:
 	levelRoot.call_deferred("add_child",level)
 	level.set_deferred("isPractice", isPractice)
 	level.level_finished.connect(handle_next_level)
-	level.level_failed.connect(handle_exit_level)
+	level.level_failed.connect(handle_reset_stage)
 	level.level_quit.connect(handle_exit_level)
 	level.visible = true
 	return level
@@ -126,6 +136,7 @@ func practice_unlock_check(id: int) -> void:
 
 func stage_unlock_check(id: int) -> void:
 	var stageCheck: int = ceil(id as float / 4.0)
-	if stageCheck > highestStage:
-		highestStage = stageCheck
+	currentStageId = stageCheck
+	if stageCheck > highestStageId:
+		highestStageId = stageCheck
 		playMenu.enable_stage(stageCheck)

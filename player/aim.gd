@@ -13,7 +13,6 @@ var isIncreasing: bool = true
 
 
 func launch() -> Vector2:
-    print("aiming at: %s" % aimAt)
     var impulse = aimAt.normalized() * magnitude
 
     # reset the values
