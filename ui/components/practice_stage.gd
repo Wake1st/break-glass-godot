@@ -27,16 +27,20 @@ func enable_level(number: int) -> void:
 
 
 func _on_level_a_pressed() -> void:
+	print("pressed level a")
 	practice_level_selected.emit(levelAScene)
 
 
 func _on_level_b_pressed() -> void:
+	print("pressed level b")
 	practice_level_selected.emit(levelBScene)
 
 
 func _on_level_c_pressed() -> void:
+	print("pressed level c")
 	practice_level_selected.emit(levelCScene)
 
 
 func _on_level_d_pressed() -> void:
+	print("pressed level d")
 	practice_level_selected.emit(levelDScene)

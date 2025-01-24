@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://cmumsdf3nd4u7"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_075jk"]
-[ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/main_menu.tscn" id="2_64sp3"]
-[ext_resource type="PackedScene" uid="uid://bm43hytbyufwc" path="res://ui/settings_menu.tscn" id="3_r8b4b"]
-[ext_resource type="PackedScene" uid="uid://m35jtq8jrbbc" path="res://ui/play_menu.tscn" id="4_ixsxk"]
-[ext_resource type="PackedScene" uid="uid://hejv5a6iyj7e" path="res://ui/practice_menu.tscn" id="5_rt8fq"]
-[ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/result_menu.tscn" id="6_gviqu"]
-[ext_resource type="PackedScene" uid="uid://cvoh7facaktul" path="res://ui/practice_level_menu.tscn" id="6_hm6k1"]
-[ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/failure_menu.tscn" id="7_mnkgp"]
+[ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/game_menus/main_menu.tscn" id="2_64sp3"]
+[ext_resource type="PackedScene" uid="uid://bm43hytbyufwc" path="res://ui/game_menus/settings_menu.tscn" id="3_r8b4b"]
+[ext_resource type="PackedScene" uid="uid://m35jtq8jrbbc" path="res://ui/game_menus/play_menu.tscn" id="4_ixsxk"]
+[ext_resource type="PackedScene" uid="uid://hejv5a6iyj7e" path="res://ui/game_menus/practice_menu.tscn" id="5_rt8fq"]
+[ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/level_menus/result_menu.tscn" id="6_gviqu"]
+[ext_resource type="PackedScene" uid="uid://cvoh7facaktul" path="res://ui/level_menus/practice_level_menu.tscn" id="6_hm6k1"]
+[ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/level_menus/failure_menu.tscn" id="7_mnkgp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_075jk")
@@ -18,19 +18,6 @@ script = ExtResource("1_075jk")
 
 [node name="MainMenu" parent="UIRoot" instance=ExtResource("2_64sp3")]
 unique_name_in_owner = true
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 376.0
-offset_top = 124.0
-offset_right = 776.0
-offset_bottom = 524.0
-
-[node name="SettingsMenu" parent="UIRoot" instance=ExtResource("3_r8b4b")]
-unique_name_in_owner = true
-visible = false
 
 [node name="PlayMenu" parent="UIRoot" instance=ExtResource("4_ixsxk")]
 unique_name_in_owner = true
@@ -40,11 +27,15 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="ResultMenu" parent="UIRoot" instance=ExtResource("6_gviqu")]
+[node name="SettingsMenu" parent="UIRoot" instance=ExtResource("3_r8b4b")]
 unique_name_in_owner = true
 visible = false
 
 [node name="FailureMenu" parent="UIRoot" instance=ExtResource("7_mnkgp")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ResultMenu" parent="UIRoot" instance=ExtResource("6_gviqu")]
 unique_name_in_owner = true
 visible = false
 

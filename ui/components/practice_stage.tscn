@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhof4a8f1hxf2"]
 
-[ext_resource type="Script" path="res://ui/practice_stage.gd" id="1_lp4ba"]
+[ext_resource type="Script" path="res://ui/components/practice_stage.gd" id="1_ioa7f"]
 [ext_resource type="Texture2D" uid="uid://b2r3yuuj8rdnr" path="res://assets/stage_texture_1.png" id="2_ecxwe"]
 
 [node name="PracticeStage" type="Panel"]
@@ -16,7 +16,7 @@ offset_right = 256.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lp4ba")
+script = ExtResource("1_ioa7f")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

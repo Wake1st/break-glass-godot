@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4dlygfeilxdg"]
 
-[ext_resource type="Texture2D" uid="uid://db6v058apy61b" path="res://ui/level_menus/icon.svg" id="1_nhdl4"]
-[ext_resource type="Script" path="res://ui/play_stage.gd" id="1_nld08"]
+[ext_resource type="Script" path="res://ui/components/play_stage.gd" id="1_aa4bv"]
+[ext_resource type="Texture2D" uid="uid://db6v058apy61b" path="res://assets/icon.svg" id="1_nhdl4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5m1p"]
 texture = ExtResource("1_nhdl4")
@@ -19,7 +19,7 @@ offset_right = 256.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nld08")
+script = ExtResource("1_aa4bv")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

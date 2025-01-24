@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bm43hytbyufwc"]
 
-[ext_resource type="Script" path="res://ui/settings_menu.gd" id="1_8iebn"]
+[ext_resource type="Script" path="res://ui/game_menus/settings_menu.gd" id="1_d0e47"]
 
 [node name="SettingsMenu" type="Panel"]
 process_mode = 2
@@ -16,7 +16,7 @@ offset_right = 200.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8iebn")
+script = ExtResource("1_d0e47")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -1,13 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://duuxoquut6pa5"]
 
-[ext_resource type="Script" path="res://ui/result_container.gd" id="1_yth4x"]
+[ext_resource type="Script" path="res://ui/components/result_container.gd" id="1_v1nj8"]
 
 [node name="ResultContainer" type="PanelContainer"]
 custom_minimum_size = Vector2(400, 0)
 offset_right = 400.0
 offset_bottom = 61.0
-script = ExtResource("1_yth4x")
-label = "Name"
+script = ExtResource("1_v1nj8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca13mevyyk4eo"]
 
-[ext_resource type="Script" path="res://ui/failure_menu.gd" id="1_11fmf"]
+[ext_resource type="Script" path="res://ui/level_menus/failure_menu.gd" id="1_4vgl5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egkdc"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -19,7 +19,7 @@ offset_right = 200.0
 offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_11fmf")
+script = ExtResource("1_4vgl5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

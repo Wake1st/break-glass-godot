@@ -118,13 +118,17 @@ func handle_level_select(scene: PackedScene) -> void:
 
 
 func handle_practice_level_select(scene:PackedScene) -> void:
+	print("practice level select handled at main")
+	
 	# disconnect current level
 	if currentLevel != null:
 		disconnect_level()
 	
 	# swap levels
 	isPractice = true
+	print("setting up scene...")
 	setup_level(scene)
+	print("... scene setup")
 	
 	# disable the current menu
 	currentMenu.visible = false
@@ -156,9 +160,7 @@ func handle_next_level() -> void:
 	# disconnect current level
 	disconnect_level()
 
-	print("prev: %s" % currentLevelId)
 	currentLevelId += 1
-	print("next: %s" % currentLevelId)
 	
 	# setup new level
 	var scene = levelList.levels[currentLevelId]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dblud0y5ptrek"]
 
-[ext_resource type="Script" path="res://ui/result_menu.gd" id="1_l1kqm"]
-[ext_resource type="PackedScene" uid="uid://duuxoquut6pa5" path="res://ui/result_container.tscn" id="1_r3w12"]
+[ext_resource type="Script" path="res://ui/level_menus/result_menu.gd" id="1_eae1c"]
+[ext_resource type="PackedScene" uid="uid://duuxoquut6pa5" path="res://ui/components/result_container.tscn" id="1_r3w12"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43rdi"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -20,7 +20,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_l1kqm")
+script = ExtResource("1_eae1c")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -52,12 +52,10 @@ theme_override_constants/separation = 32
 [node name="TimeContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_r3w12")]
 unique_name_in_owner = true
 layout_mode = 2
-label = "Time"
 
 [node name="GlassContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_r3w12")]
 unique_name_in_owner = true
 layout_mode = 2
-label = "Glass"
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -66,7 +64,6 @@ theme_override_constants/separation = 16
 [node name="ScoreContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_r3w12")]
 unique_name_in_owner = true
 layout_mode = 2
-label = "Score"
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
