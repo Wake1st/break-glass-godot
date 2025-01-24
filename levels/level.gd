@@ -1,7 +1,7 @@
 class_name Level
 extends Node2D
 
-signal level_finished(currentLevel: int)
+signal level_finished(id: int)
 signal level_failed()
 signal level_quit()
 
@@ -11,7 +11,6 @@ signal level_quit()
 
 var endTimer: Timer = Timer.new()
 var currentNumber: int
-var isPractice: bool
 
 
 func _ready() -> void:
@@ -29,11 +28,6 @@ func _ready() -> void:
 	goal.finished.connect(handle_goal_crossed)
 	fallBoundary.passed_fall_boundary.connect(handle_fall_failure)
 	endTimer.timeout.connect(_on_endtimer_timeout)
-
-	player.resultMenu.menu_selected.connect(handle_menu_selected)
-	player.resultMenu.next_selected.connect(handle_next_selected)
-	player.failureMenu.menu_selected.connect(handle_menu_selected)
-	player.failureMenu.reset_selected.connect(handle_reset_selected)
 
 
 ###	DEV-ONLY: Skips the level 

@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmumsdf3nd4u7"]
+[gd_scene load_steps=7 format=3 uid="uid://cmumsdf3nd4u7"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_075jk"]
 [ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/main_menu.tscn" id="2_64sp3"]
 [ext_resource type="PackedScene" uid="uid://bm43hytbyufwc" path="res://ui/settings_menu.tscn" id="3_r8b4b"]
 [ext_resource type="PackedScene" uid="uid://m35jtq8jrbbc" path="res://ui/play_menu.tscn" id="4_ixsxk"]
 [ext_resource type="PackedScene" uid="uid://hejv5a6iyj7e" path="res://ui/practice_menu.tscn" id="5_rt8fq"]
-[ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/result_menu.tscn" id="6_gviqu"]
 [ext_resource type="PackedScene" uid="uid://jad3jef1mr0i" path="res://ui/practice_level_menu.tscn" id="6_hm6k1"]
-[ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/failure_menu.tscn" id="7_mnkgp"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_075jk")
@@ -58,14 +56,6 @@ visible = false
 layout_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ResultMenu" parent="CanvasLayer" instance=ExtResource("6_gviqu")]
-unique_name_in_owner = true
-visible = false
-
-[node name="FailureMenu" parent="CanvasLayer" instance=ExtResource("7_mnkgp")]
-unique_name_in_owner = true
-visible = false
 
 [node name="PracticeLevelMenu" parent="CanvasLayer" instance=ExtResource("6_hm6k1")]
 unique_name_in_owner = true

@@ -9,8 +9,6 @@ const ANIMATION_ANGLE: float = PI/4
 @onready var image: Sprite2D = $Image
 @onready var imageAnimator: AnimationPlayer = $Image/AnimationPlayer
 
-@onready var resultMenu: ResultMenu = %ResultMenu
-@onready var failureMenu: FailureMenu = %FailureMenu
 
 var isAiming: bool = false
 var headFirst: bool = false

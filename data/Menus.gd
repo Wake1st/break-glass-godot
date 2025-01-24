@@ -1,0 +1,10 @@
+class_name Menus
+
+enum NAMES {
+	MAIN,
+	PLAY,
+	PRACTICE,
+	RESULT,
+	FAILURE,
+	PRACTICE_RESULT
+}
