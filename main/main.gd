@@ -13,6 +13,9 @@ enum MENUS {
 }
 
 
+const FIRST_LEVEL_ID: int = 1
+const LAST_LEVEL_ID: int = 16
+
 @onready var mainMenu: MainMenu = %MainMenu
 @onready var playMenu: PlayMenu = %PlayMenu
 @onready var practiceMenu: PracticeMenu = %PracticeMenu
@@ -33,6 +36,9 @@ var currentLevelId: int = 1
 var currentStageId: int = 1
 var highestLevelId: int = 0
 var highestStageId: int = 0
+
+var atLowerLimit: bool = true
+var atUpperLimit: bool = true
 
 
 func _ready() -> void:
@@ -75,7 +81,10 @@ func handle_menu_change(menu: MENUS) -> void:
 		MENUS.SETTINGS: currentMenu = settingsMenu
 		MENUS.RESULT: currentMenu = resultMenu
 		MENUS.FAILURE: currentMenu = failureMenu
-		MENUS.PRACTICE_RESULT: currentMenu = practiceLevelMenu
+		MENUS.PRACTICE_RESULT: 
+			currentMenu = practiceLevelMenu
+			practiceLevelMenu.disable_prev(atLowerLimit)
+			practiceLevelMenu.disable_next(atUpperLimit)
 	
 	currentMenu.visible = true
 
@@ -112,6 +121,7 @@ func handle_level_select(scene: PackedScene) -> void:
 	# swap levels
 	isPractice = false
 	setup_level(scene)
+	currentLevelId = get_level_id(scene)
 	
 	# disable the current menu
 	currentMenu.visible = false
@@ -125,9 +135,13 @@ func handle_practice_level_select(scene:PackedScene) -> void:
 	# swap levels
 	isPractice = true
 	setup_level(scene)
+	currentLevelId = get_level_id(scene)
 	
 	# disable the current menu
 	currentMenu.visible = false
+	
+	# check the limits per the level id
+	set_level_navigation_limits(currentLevelId)
 
 
 func handle_return_to_menu() -> void:
@@ -144,10 +158,10 @@ func handle_reset_stage() -> void:
 	disconnect_level()
 	
 	# reset at the beginning of the stage
-	var levelId = currentStageId * 4 - 3
-	var scene = levelList.levels[levelId]
+	currentLevelId = currentStageId * 4 - 3
+	var scene = levelList.levels[currentLevelId]
 	setup_level(scene)
-		
+	
 	# disable the current menu
 	currentMenu.visible = false
 
@@ -155,7 +169,7 @@ func handle_reset_stage() -> void:
 func handle_next_level() -> void:
 	# disconnect current level
 	disconnect_level()
-
+	
 	currentLevelId += 1
 	
 	# setup new level
@@ -175,8 +189,9 @@ func handle_next_level() -> void:
 func handle_prev_practice_level() -> void:
 	# disconnect current level
 	disconnect_level()
-
+	
 	currentLevelId -= 1
+	set_level_navigation_limits(currentLevelId)
 	
 	# setup new level
 	var scene = levelList.levels[currentLevelId]
@@ -203,12 +218,13 @@ func handle_next_practice_level() -> void:
 	disconnect_level()
 	
 	currentLevelId += 1
+	set_level_navigation_limits(currentLevelId)
 	
 	# setup new level
 	var scene = levelList.levels[currentLevelId]
 	isPractice = true
 	setup_level(scene)
-		
+	
 	# disable the current menu
 	currentMenu.visible = false
 
@@ -247,5 +263,19 @@ func stage_unlock_check(id: int) -> void:
 	if stageCheck > highestStageId:
 		highestStageId = stageCheck
 		playMenu.enable_stage(stageCheck)
+
+
+### Checks the upper and lower limits of levels and 
+### disables the practice level menu next and prev buttons.
+func set_level_navigation_limits(id: int) -> void:
+	atLowerLimit = true if id == FIRST_LEVEL_ID else false
+	atUpperLimit = true if (
+		id == highestLevelId || id == LAST_LEVEL_ID
+		) else false
+
+
+### Takes a scene and returns a level id
+func get_level_id(scene: PackedScene) -> int:
+	return levelList.levels.find_key(scene)
 
 #endregion

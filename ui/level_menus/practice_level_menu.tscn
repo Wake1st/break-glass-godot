@@ -51,6 +51,7 @@ layout_mode = 2
 theme_override_styles/panel = ExtResource("2_oi5m2")
 
 [node name="Prev" type="Button" parent="MarginContainer/VBoxContainer/HorizontalNavigation"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 48
@@ -59,6 +60,7 @@ text = "Prev
 alignment = 0
 
 [node name="Next" type="Button" parent="MarginContainer/VBoxContainer/HorizontalNavigation"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_font_sizes/font_size = 48
