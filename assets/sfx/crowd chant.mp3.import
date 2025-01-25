@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdvm311slfmmm"
+path="res://.godot/imported/crowd chant.mp3-0c46f576eeab9d49ed11f9f0794a7af1.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/crowd chant.mp3"
+dest_files=["res://.godot/imported/crowd chant.mp3-0c46f576eeab9d49ed11f9f0794a7af1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

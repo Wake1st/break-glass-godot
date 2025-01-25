@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8jis5wpdf78d"
+path="res://.godot/imported/announcer - question.mp3-e8839d3d5c8ac0cc69d195dd1c335c0d.mp3str"
+
+[deps]
+
+source_file="res://assets/voice/announcer - question.mp3"
+dest_files=["res://.godot/imported/announcer - question.mp3-e8839d3d5c8ac0cc69d195dd1c335c0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
