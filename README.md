@@ -8,8 +8,7 @@ Navigate the character through glass mazes by launching and landing onto and thr
 - [x] user should be able to land on a pannel.
 - [x] user should be able to navigate their way to the end of a level.
 - [x] user must restart the level if they fall.
-- [ ] user risks breaking pannels when landing on them, based on velocity.
-  - [ ] pannels have durability rating which decreases with every landing.
+- [x] user risks breaking pannels when landing on them, based on a durability rating which decreases with every landing.
 - [ ] user's score should increase by breaking pannels.
 - [ ] user's score should descrease with time.
 
