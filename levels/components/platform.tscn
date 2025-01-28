@@ -1,32 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://diylur7volu7j"]
+[gd_scene load_steps=5 format=3 uid="uid://diylur7volu7j"]
 
 [ext_resource type="Script" path="res://levels/components/platform.gd" id="1_ges2p"]
-[ext_resource type="Texture2D" uid="uid://h40nkgpmih0h" path="res://assets/panel.png" id="1_q8n5r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh2ea"]
-size = Vector2(128, 27)
+[ext_resource type="Texture2D" uid="uid://fu8sn8vw05e" path="res://assets/images/glass panel-Sheet.png" id="2_in2tm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgnf5"]
 rough = true
 absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac4mv"]
-size = Vector2(128, 29)
+size = Vector2(160, 16)
 
 [node name="Platform" type="Node2D"]
 script = ExtResource("1_ges2p")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Image" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(4, 4)
-texture = ExtResource("1_q8n5r")
+texture = ExtResource("2_in2tm")
+hframes = 2
 
-[node name="Detection" type="Area2D" parent="."]
+[node name="DetectionTop" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-position = Vector2(0, -10.5)
-shape = SubResource("RectangleShape2D_gh2ea")
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectionTop"]
+position = Vector2(6.84524, -14.7413)
+scale = Vector2(0.595238, 0.173611)
+polygon = PackedVector2Array(-145.9, 38.83, -119.02, -53.33, 96.02, -53.33, 122.9, 38.83)
 
 [node name="Boundary" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -34,7 +32,15 @@ collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_sgnf5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
-position = Vector2(0, 17.5)
 shape = SubResource("RectangleShape2D_ac4mv")
 
-[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[node name="DetectionBottom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DetectionBottom"]
+position = Vector2(-7.15476, 15.2587)
+rotation = 3.14159
+scale = Vector2(0.595238, 0.173611)
+polygon = PackedVector2Array(-146.42, 41.8101, -119.54, -50.35, 95.5, -50.3501, 122.38, 41.81)
+
+[connection signal="body_entered" from="DetectionTop" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="DetectionBottom" to="." method="_on_detection_body_entered"]

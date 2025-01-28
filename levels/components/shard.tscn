@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://43o4itn6c5ed"]
+
+[ext_resource type="Script" path="res://levels/components/shard.gd" id="1_51fni"]
+[ext_resource type="Texture2D" uid="uid://cbh4aknh4lps" path="res://assets/images/pieces-Sheet.png" id="2_cf202"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6dpnr"]
+bounce = 0.25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6cqj"]
+
+[node name="Shard" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_6dpnr")
+can_sleep = false
+script = ExtResource("1_51fni")
+
+[node name="Image" type="Sprite2D" parent="."]
+texture = ExtResource("2_cf202")
+hframes = 8
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y6cqj")
