@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://diylur7volu7j"]
+[gd_scene load_steps=6 format=3 uid="uid://diylur7volu7j"]
 
 [ext_resource type="Script" path="res://levels/components/platform.gd" id="1_ges2p"]
 [ext_resource type="Texture2D" uid="uid://fu8sn8vw05e" path="res://assets/images/glass panel-Sheet.png" id="2_in2tm"]
+[ext_resource type="AudioStream" uid="uid://b18ghtexe7l7r" path="res://assets/sfx/thump.wav" id="3_jqhiv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sgnf5"]
 rough = true
@@ -41,6 +42,10 @@ position = Vector2(-7.15476, 15.2587)
 rotation = 3.14159
 scale = Vector2(0.595238, 0.173611)
 polygon = PackedVector2Array(-146.42, 41.8101, -119.54, -50.35, 95.5, -50.3501, 122.38, 41.81)
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jqhiv")
+bus = &"SFX"
 
 [connection signal="body_entered" from="DetectionTop" to="." method="_on_detection_body_entered"]
 [connection signal="body_entered" from="DetectionBottom" to="." method="_on_detection_body_entered"]

@@ -9,8 +9,9 @@ signal platform_broken()
 
 @export var durability: int = 3 
 
-@onready var image = $Image
+@onready var image: Sprite2D = $Image
 @onready var boundary: StaticBody2D = $Boundary
+@onready var sfxPlayer: AudioStreamPlayer2D = $SFXPlayer
 
 var shardScene: PackedScene = preload("res://levels/components/shard.tscn")
 var isBroken: bool = false
@@ -28,6 +29,8 @@ func _on_detection_body_entered(body:Node2D) -> void:
 				break_glass(player.velocity)
 			else:
 				player.surfaceForward = global_transform.x.angle()
+				sfxPlayer.play()
+
 
 
 func break_glass(velocity: Vector2) -> void:

@@ -8,7 +8,7 @@ const ANIMATION_ANGLE: float = PI/4
 @onready var aim: Aim = $Aim
 @onready var image: Sprite2D = $Image
 @onready var imageAnimator: AnimationPlayer = $Image/AnimationPlayer
-
+@onready var sfxPlayer: AudioStreamPlayer2D = $SFXPlayer
 
 var isAiming: bool = false
 var headFirst: bool = false
@@ -31,6 +31,7 @@ func _physics_process(delta):
 
 		# animate
 		imageAnimator.play("idle")
+		sfxPlayer.stop()
 	else:
 		# update motion
 		velocity.y += GRAVITY
@@ -52,6 +53,8 @@ func _physics_process(delta):
 		
 		velocity += aim.launch() * IMPULSE_BOOST
 		flip(true)
+
+		sfxPlayer.play()
 	if Input.is_action_just_pressed("aim"):
 		isAiming = true
 		aim.visible = true

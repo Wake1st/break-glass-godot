@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cryqnjk6ljur4"]
+[gd_scene load_steps=12 format=3 uid="uid://cryqnjk6ljur4"]
 
 [ext_resource type="Texture2D" uid="uid://r0mg3uhxjjd1" path="res://assets/images/hopper-Sheet-sheet.png" id="1_di721"]
 [ext_resource type="Script" path="res://levels/player/player.gd" id="1_leat7"]
 [ext_resource type="PackedScene" uid="uid://bqv7so7nk8rqp" path="res://levels/player/aim.tscn" id="3_6nnbd"]
 [ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/level_menus/failure_menu.tscn" id="4_5je8h"]
 [ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/level_menus/result_menu.tscn" id="5_daqsu"]
+[ext_resource type="AudioStream" uid="uid://cmmur5h000hcj" path="res://assets/sfx/wind.wav" id="6_m53kx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qyey6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flkjh"]
+radius = 5.0
+height = 43.0
 
 [sub_resource type="Animation" id="Animation_1pqi0"]
 length = 0.001
@@ -72,8 +75,9 @@ floor_max_angle = 0.0
 script = ExtResource("1_leat7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_qyey6")
+position = Vector2(0, -17)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_flkjh")
 
 [node name="Image" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -105,3 +109,6 @@ top_level = true
 unique_name_in_owner = true
 visible = false
 top_level = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_m53kx")
