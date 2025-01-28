@@ -180,6 +180,10 @@ func handle_reset_stage() -> void:
 	
 	# disable the current menu
 	currentMenu.visible = false
+	
+	# start the timer
+	levelTimer.start()
+	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
 
 
 func handle_next_level() -> void:
@@ -216,7 +220,7 @@ func handle_prev_practice_level() -> void:
 	# setup new level
 	var scene = levelList.levels[currentLevelId]
 	setup_level(scene)
-		
+	
 	# disable the current menu
 	currentMenu.visible = false
 
@@ -228,7 +232,7 @@ func handle_replay_practice_level() -> void:
 	# setup new level
 	var scene = levelList.levels[currentLevelId]
 	setup_level(scene)
-		
+	
 	# disable the current menu
 	currentMenu.visible = false
 

@@ -17,6 +17,10 @@ var shardScene: PackedScene = preload("res://levels/components/shard.tscn")
 var isBroken: bool = false
 
 
+func _ready() -> void:
+	sfxPlayer.volume_db = linear_to_db(0.8)
+
+
 func _on_detection_body_entered(body:Node2D) -> void:
 	if body is Player:
 		var player = body as Player
