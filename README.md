@@ -11,7 +11,8 @@ Navigate the character through glass mazes by launching and landing onto and thr
 - [x] user risks breaking pannels when landing on them, based on a durability rating which decreases with every landing.
 - [x] user's score should increase by breaking pannels.
 - [x] user's score should descrease with time.
-- [ ] user should hear sounds
+- [x] user should hear sounds
+- [x] user should be able to adjust the sounds
 - [ ] user should get small tutorials telling them how to play the game
   - [ ] user should be slowed down to allow them time to understand the "flip" mechanic
 - [ ] user should see and intro cutscene every playthrough

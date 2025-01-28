@@ -26,7 +26,8 @@ const LAST_LEVEL_ID: int = 16
 @onready var practiceLevelMenu: PracticeLevelMenu = %PracticeLevelMenu
 
 @onready var levelRoot: Node2D = $LevelRoot
-@onready var levelTimer: Timer = $LevelTimer
+@onready var levelTimer: Timer = %LevelTimer
+@onready var musicPlayer: MusicPlayer = %MusicPlayer
 
 var currentMenu: Panel
 var currentLevel: Level
@@ -68,6 +69,9 @@ func _ready() -> void:
 	# unlock the first level for practice
 	practice_unlock_check(1)
 
+	# play this music
+	musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
+
 
 #region UI Navigation
 
@@ -102,6 +106,7 @@ func handle_level_failed() -> void:
 		handle_menu_change(MENUS.PRACTICE_RESULT)
 	else:
 		handle_menu_change(MENUS.FAILURE)
+		musicPlayer.stop()
 
 
 func handle_level_finished(platformsBroken: int) -> void:
@@ -109,9 +114,12 @@ func handle_level_finished(platformsBroken: int) -> void:
 		handle_menu_change(MENUS.PRACTICE_RESULT)
 	else:
 		var result = LevelResult.new(platformsBroken, levelTimer.time_left)
-		levelTimer.stop()
 		resultMenu.display_result(result)
 		handle_menu_change(MENUS.RESULT)
+
+		# stop level resources
+		levelTimer.stop()
+		musicPlayer.stop()
 
 #endregion
 
@@ -130,8 +138,9 @@ func handle_level_select(scene: PackedScene) -> void:
 	# disable the current menu
 	currentMenu.visible = false
 	
-	# start the timer
+	# start the level related resources
 	levelTimer.start()
+	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
 
 
 func handle_practice_level_select(scene:PackedScene) -> void:
@@ -194,6 +203,7 @@ func handle_next_level() -> void:
 	
 	# start the timer
 	levelTimer.start()
+	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
 
 
 func handle_prev_practice_level() -> void:
@@ -290,7 +300,7 @@ func get_level_id(scene: PackedScene) -> int:
 
 #endregion
 
-#region Native Event Handling
+#region Other Event Handling
 
 func _on_level_timer_timeout():
 	print("timed out failure!")

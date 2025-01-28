@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://3c6hq4pp2wwj"]
+
+[ext_resource type="AudioStream" uid="uid://cqfil5njpfvf8" path="res://assets/music/BreakGlass-Base.ogg" id="1_af5ho"]
+[ext_resource type="Script" path="res://main/music_player.gd" id="1_ivxh8"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_af5ho")
+bus = &"Music"
+script = ExtResource("1_ivxh8")

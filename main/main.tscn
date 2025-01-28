@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmumsdf3nd4u7"]
+[gd_scene load_steps=10 format=3 uid="uid://cmumsdf3nd4u7"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_075jk"]
 [ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/game_menus/main_menu.tscn" id="2_64sp3"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dblud0y5ptrek" path="res://ui/level_menus/result_menu.tscn" id="6_gviqu"]
 [ext_resource type="PackedScene" uid="uid://cvoh7facaktul" path="res://ui/level_menus/practice_level_menu.tscn" id="6_hm6k1"]
 [ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/level_menus/failure_menu.tscn" id="7_mnkgp"]
+[ext_resource type="PackedScene" uid="uid://3c6hq4pp2wwj" path="res://main/music_player.tscn" id="9_hrugw"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_075jk")
@@ -43,8 +44,14 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="LevelTimer" type="Timer" parent="."]
+[node name="Misc" type="Node" parent="."]
+
+[node name="LevelTimer" type="Timer" parent="Misc"]
+unique_name_in_owner = true
 wait_time = 51.0
 one_shot = true
 
-[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[node name="MusicPlayer" parent="Misc" instance=ExtResource("9_hrugw")]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Misc/LevelTimer" to="." method="_on_level_timer_timeout"]
