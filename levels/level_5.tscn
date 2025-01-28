@@ -12,59 +12,61 @@ script = ExtResource("1_6g7y8")
 
 [node name="Start" parent="." instance=ExtResource("2_hegy8")]
 
-[node name="Panel2" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(-200, -700)
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -460)
 rotation = 1.5708
 
-[node name="Panel3" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(200, -500)
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(200, -260)
 rotation = -1.5708
 
-[node name="Panel4" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(200, -900)
-rotation = 4.71239
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(200, -660)
+rotation = -1.5708
 
-[node name="Panel5" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(-200, -1100)
-rotation = 7.85398
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -860)
+rotation = 1.57079
 
-[node name="Panel6" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(-200, -1500)
+[node name="Panel6" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -1260)
 rotation = 1.5708
 
-[node name="Panel7" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(200, -1300)
+[node name="Panel7" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(200, -1060)
 rotation = -1.5708
 
-[node name="Panel8" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(200, -1700)
-rotation = 4.71239
+[node name="Panel8" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(200, -1460)
+rotation = -1.5708
 
-[node name="Panel9" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(-200, -1900)
-rotation = 7.85398
+[node name="Panel9" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -1660)
+rotation = 1.57079
 
-[node name="Panel10" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(-200, -2300)
+[node name="Panel10" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -2060)
 rotation = 1.5708
 
-[node name="Panel11" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(200, -2100)
+[node name="Panel11" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(200, -1860)
 rotation = -1.5708
 
-[node name="Panel12" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(200, -2500)
-rotation = 4.71239
+[node name="Panel12" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(200, -2260)
+rotation = -1.5708
 
-[node name="Panel13" parent="." instance=ExtResource("3_3cc22")]
-position = Vector2(-200, -2700)
-rotation = 7.85398
+[node name="Panel13" parent="PlatformParent" instance=ExtResource("3_3cc22")]
+position = Vector2(-200, -2460)
+rotation = 1.57079
 
 [node name="Player" parent="." instance=ExtResource("4_hl38s")]
 position = Vector2(0, 2)
 
 [node name="Goal" parent="." instance=ExtResource("5_tncup")]
-position = Vector2(0, -3040)
+position = Vector2(0, -2800)
 rotation = 1.5708
 
 [node name="FallBoundary" parent="." instance=ExtResource("6_725lq")]

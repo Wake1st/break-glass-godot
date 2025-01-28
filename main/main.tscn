@@ -42,3 +42,9 @@ visible = false
 [node name="PracticeLevelMenu" parent="UIRoot" instance=ExtResource("6_hm6k1")]
 unique_name_in_owner = true
 visible = false
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 51.0
+one_shot = true
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

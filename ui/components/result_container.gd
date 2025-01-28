@@ -5,7 +5,7 @@ extends PanelContainer
 @export var label: String:
 	set(value):
 		label = value
-		if has_node("%Node"):
+		if has_node("%Name"):
 			(get_node("%Name") as Label).text = value
 
 @onready var valueLabel: Label = %Value

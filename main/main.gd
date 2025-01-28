@@ -26,6 +26,7 @@ const LAST_LEVEL_ID: int = 16
 @onready var practiceLevelMenu: PracticeLevelMenu = %PracticeLevelMenu
 
 @onready var levelRoot: Node2D = $LevelRoot
+@onready var levelTimer: Timer = $LevelTimer
 
 var currentMenu: Panel
 var currentLevel: Level
@@ -103,10 +104,13 @@ func handle_level_failed() -> void:
 		handle_menu_change(MENUS.FAILURE)
 
 
-func handle_level_finished() -> void:
+func handle_level_finished(platformsBroken: int) -> void:
 	if isPractice:
 		handle_menu_change(MENUS.PRACTICE_RESULT)
 	else:
+		var result = LevelResult.new(platformsBroken, levelTimer.time_left)
+		levelTimer.stop()
+		resultMenu.display_result(result)
 		handle_menu_change(MENUS.RESULT)
 
 #endregion
@@ -125,6 +129,9 @@ func handle_level_select(scene: PackedScene) -> void:
 	
 	# disable the current menu
 	currentMenu.visible = false
+	
+	# start the timer
+	levelTimer.start()
 
 
 func handle_practice_level_select(scene:PackedScene) -> void:
@@ -184,6 +191,9 @@ func handle_next_level() -> void:
 		
 	# disable the current menu
 	currentMenu.visible = false
+	
+	# start the timer
+	levelTimer.start()
 
 
 func handle_prev_practice_level() -> void:
@@ -277,5 +287,12 @@ func set_level_navigation_limits(id: int) -> void:
 ### Takes a scene and returns a level id
 func get_level_id(scene: PackedScene) -> int:
 	return levelList.levels.find_key(scene)
+
+#endregion
+
+#region Native Event Handling
+
+func _on_level_timer_timeout():
+	print("timed out failure!")
 
 #endregion

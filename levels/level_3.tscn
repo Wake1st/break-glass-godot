@@ -12,16 +12,18 @@ script = ExtResource("1_st4q2")
 
 [node name="Start" parent="." instance=ExtResource("2_dqace")]
 
-[node name="Panel2" parent="." instance=ExtResource("3_6v8so")]
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_6v8so")]
 position = Vector2(230, -231)
 rotation = -1.0472
 durability = 2
 
-[node name="Panel3" parent="." instance=ExtResource("3_6v8so")]
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_6v8so")]
 position = Vector2(-299, -427)
 rotation = 1.0472
 
-[node name="Panel4" parent="." instance=ExtResource("3_6v8so")]
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_6v8so")]
 position = Vector2(3.00001, -543)
 rotation = 2.0944
 

@@ -9,8 +9,11 @@ Navigate the character through glass mazes by launching and landing onto and thr
 - [x] user should be able to navigate their way to the end of a level.
 - [x] user must restart the level if they fall.
 - [x] user risks breaking pannels when landing on them, based on a durability rating which decreases with every landing.
-- [ ] user's score should increase by breaking pannels.
-- [ ] user's score should descrease with time.
+- [x] user's score should increase by breaking pannels.
+- [x] user's score should descrease with time.
+- [ ] user should see and intro cutscene every playthrough
+- [ ] user should be guided to the practice section after the first death
+  - [ ] user should be "rewarded" for completing the game without dieing
 
 ### Stretch
 - [ ] user can select their player name from a series of pre-recorded names (e.g. "draggon", "alpha", "silver").

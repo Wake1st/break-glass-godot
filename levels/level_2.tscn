@@ -12,7 +12,9 @@ script = ExtResource("1_5d3xg")
 
 [node name="Start" parent="." instance=ExtResource("2_jv212")]
 
-[node name="Platform2" parent="." instance=ExtResource("1_utrgk")]
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Platform2" parent="PlatformParent" instance=ExtResource("1_utrgk")]
 position = Vector2(400, 50)
 
 [node name="Player" parent="." instance=ExtResource("2_c0xhi")]
