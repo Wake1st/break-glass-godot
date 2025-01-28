@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://deb4ccl8wguj8"]
 
 [ext_resource type="Script" path="res://levels/components/goal.gd" id="1_ku770"]
-[ext_resource type="Texture2D" uid="uid://8ms5f7uvx6i6" path="res://assets/goal.png" id="1_vcq7y"]
+[ext_resource type="Texture2D" uid="uid://8ms5f7uvx6i6" path="res://assets/images/goal.png" id="1_vcq7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vk4cc"]
 size = Vector2(64, 128)

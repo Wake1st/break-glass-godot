@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ms5f7uvx6i6"
-path="res://.godot/imported/goal.png-0c667cdea5a1e49b564b867d565eb4ec.ctex"
+uid="uid://r0mg3uhxjjd1"
+path="res://.godot/imported/hopper-Sheet-sheet.png-7e13c1c45c1cd9753b372aad98a6bdf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/goal.png"
-dest_files=["res://.godot/imported/goal.png-0c667cdea5a1e49b564b867d565eb4ec.ctex"]
+source_file="res://assets/images/hopper-Sheet-sheet.png"
+dest_files=["res://.godot/imported/hopper-Sheet-sheet.png-7e13c1c45c1cd9753b372aad98a6bdf2.ctex"]
 
 [params]
 

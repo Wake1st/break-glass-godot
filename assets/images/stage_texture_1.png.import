@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diglnftvt0j6l"
-path="res://.godot/imported/arrow.png-af9c40b335090227900bc7e5c1ee343c.ctex"
+uid="uid://b2r3yuuj8rdnr"
+path="res://.godot/imported/stage_texture_1.png-96929f64461f6fc2d46c533b079c5489.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-af9c40b335090227900bc7e5c1ee343c.ctex"]
+source_file="res://assets/images/stage_texture_1.png"
+dest_files=["res://.godot/imported/stage_texture_1.png-96929f64461f6fc2d46c533b079c5489.ctex"]
 
 [params]
 

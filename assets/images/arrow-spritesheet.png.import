@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r0mg3uhxjjd1"
-path="res://.godot/imported/hopper-Sheet-sheet.png-604a6ce4a0c2da681f43acd05bf0edcd.ctex"
+uid="uid://cm26waatk7sdb"
+path="res://.godot/imported/arrow-spritesheet.png-57f79b64e50cb50d9542f41091820570.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/hopper-Sheet-sheet.png"
-dest_files=["res://.godot/imported/hopper-Sheet-sheet.png-604a6ce4a0c2da681f43acd05bf0edcd.ctex"]
+source_file="res://assets/images/arrow-spritesheet.png"
+dest_files=["res://.godot/imported/arrow-spritesheet.png-57f79b64e50cb50d9542f41091820570.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqv7so7nk8rqp"]
 
 [ext_resource type="Script" path="res://levels/player/aim.gd" id="2_a88oo"]
-[ext_resource type="Texture2D" uid="uid://cm26waatk7sdb" path="res://assets/arrow-spritesheet.png" id="2_eqouu"]
+[ext_resource type="Texture2D" uid="uid://cm26waatk7sdb" path="res://assets/images/arrow-spritesheet.png" id="2_eqouu"]
 
 [node name="Aim" type="Node2D"]
 script = ExtResource("2_a88oo")

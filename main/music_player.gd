@@ -21,4 +21,4 @@ func play_music(music: MUSIC) -> void:
 
 
 func _ready() -> void:
-	volume_db = linear_to_db(0.8)
+	volume_db = linear_to_db(0.4)

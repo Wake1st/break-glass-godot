@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cryqnjk6ljur4"]
 
-[ext_resource type="Texture2D" uid="uid://r0mg3uhxjjd1" path="res://assets/hopper-Sheet-sheet.png" id="1_di721"]
+[ext_resource type="Texture2D" uid="uid://r0mg3uhxjjd1" path="res://assets/images/hopper-Sheet-sheet.png" id="1_di721"]
 [ext_resource type="Script" path="res://levels/player/player.gd" id="1_leat7"]
 [ext_resource type="PackedScene" uid="uid://bqv7so7nk8rqp" path="res://levels/player/aim.tscn" id="3_6nnbd"]
 [ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/level_menus/failure_menu.tscn" id="4_5je8h"]

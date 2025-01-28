@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bhof4a8f1hxf2"]
 
 [ext_resource type="Script" path="res://ui/components/practice_stage.gd" id="1_ioa7f"]
-[ext_resource type="Texture2D" uid="uid://b2r3yuuj8rdnr" path="res://assets/stage_texture_1.png" id="2_ecxwe"]
+[ext_resource type="Texture2D" uid="uid://b2r3yuuj8rdnr" path="res://assets/images/stage_texture_1.png" id="2_ecxwe"]
 
 [node name="PracticeStage" type="Panel"]
 custom_minimum_size = Vector2(512, 80)
