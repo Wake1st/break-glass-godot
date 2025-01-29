@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp4lva8wwdwdh"]
+
+[ext_resource type="Script" path="res://ui/level_menus/tutorials.gd" id="1_6cxr3"]
+
+[node name="Tutorials" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6cxr3")
+
+[node name="Tip_Launch" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Message" type="Label" parent="Tip_Launch"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Hold \"left-mouse\" to charge, 
+move mouse to aim, 
+and release to 'Launch'."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tip_Flip" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Message" type="Label" parent="Tip_Flip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Press \"space\" or \"right mouse button\" to 'Flip'."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tip_FlipBack" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="Message" type="Label" parent="Tip_FlipBack"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Nice! You can land when feet first, 
+and smash when head first...
+you can flip back now."
+horizontal_alignment = 1
+vertical_alignment = 1

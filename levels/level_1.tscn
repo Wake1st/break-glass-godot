@@ -22,8 +22,8 @@ rotation = -1.5708
 position = Vector2(0, 3)
 
 [node name="Goal" parent="." instance=ExtResource("2_auo2n")]
-position = Vector2(451, -1.99997)
-rotation = 0.785398
+position = Vector2(385, -109)
+rotation = 0.261799
 
 [node name="FallBoundary" parent="." instance=ExtResource("6_cvupy")]
 position = Vector2(0, 600)

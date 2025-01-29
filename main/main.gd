@@ -24,6 +24,7 @@ const LAST_LEVEL_ID: int = 16
 @onready var resultMenu: ResultMenu = %ResultMenu
 @onready var failureMenu: FailureMenu = %FailureMenu
 @onready var practiceLevelMenu: PracticeLevelMenu = %PracticeLevelMenu
+@onready var tutorials: Tutorials = %Tutorials
 
 @onready var levelRoot: Node2D = $LevelRoot
 @onready var levelTimer: Timer = %LevelTimer
@@ -33,6 +34,7 @@ var currentMenu: Panel
 var currentLevel: Level
 var levelList: LevelList = LevelList.new()
 var isPractice: bool
+var showTutorials: bool = true
 
 var currentLevelId: int = 1
 var currentStageId: int = 1
@@ -52,6 +54,7 @@ func _ready() -> void:
 	
 	mainMenu.menu_selected.connect(handle_menu_change)
 	settingsMenu.menu_selected.connect(handle_menu_change)
+	settingsMenu.toggle_tutorials.connect(handle_toggle_tutorial)
 	playMenu.level_selected.connect(handle_level_select)
 	playMenu.menu_selected.connect(handle_menu_change)
 	practiceMenu.menu_selected.connect(handle_menu_change)
@@ -142,6 +145,9 @@ func handle_level_select(scene: PackedScene) -> void:
 	levelTimer.start()
 	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
 
+	# display tutorials for the first level and second level
+	check_tutorials()
+
 
 func handle_practice_level_select(scene:PackedScene) -> void:
 	# disconnect current level
@@ -158,6 +164,9 @@ func handle_practice_level_select(scene:PackedScene) -> void:
 	
 	# check the limits per the level id
 	set_level_navigation_limits(currentLevelId)
+
+	# display tutorials for the first level and second level
+	check_tutorials()
 
 
 func handle_return_to_menu() -> void:
@@ -209,6 +218,9 @@ func handle_next_level() -> void:
 	levelTimer.start()
 	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
 
+	# display tutorials for the first level and second level
+	check_tutorials()
+
 
 func handle_prev_practice_level() -> void:
 	# disconnect current level
@@ -251,6 +263,9 @@ func handle_next_practice_level() -> void:
 	
 	# disable the current menu
 	currentMenu.visible = false
+
+	# display tutorials for the first level and second level
+	check_tutorials()
 
 #endregion
 
@@ -302,9 +317,22 @@ func set_level_navigation_limits(id: int) -> void:
 func get_level_id(scene: PackedScene) -> int:
 	return levelList.levels.find_key(scene)
 
+
+### Checks to see if tutorials need to be run
+func check_tutorials() -> void:
+	if showTutorials and tutorials.isFirstPlaythrough:
+		if currentLevelId == 1:
+			tutorials.run_tip(Tutorials.TIP.LAUNCH)
+		elif currentLevelId == 2:
+			tutorials.run_tip(Tutorials.TIP.FLIP)
+
 #endregion
 
 #region Other Event Handling
+
+func handle_toggle_tutorial(on: bool) -> void:
+	showTutorials = on
+
 
 func _on_level_timer_timeout():
 	print("timed out failure!")

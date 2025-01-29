@@ -13,14 +13,14 @@ Navigate the character through glass mazes by launching and landing onto and thr
 - [x] user's score should descrease with time.
 - [x] user should hear sounds
 - [x] user should be able to adjust the sounds
-- [ ] user should get small tutorials telling them how to play the game
-  - [ ] user should be slowed down to allow them time to understand the "flip" mechanic
+- [x] user should get small tutorials telling them how to play the game
+  - [x] user should be slowed down to allow them time to understand the "flip" mechanic
 - [ ] user should see and intro cutscene every playthrough
 - [ ] user should be guided to the practice section after the first death
-  - [ ] user should be "rewarded" for completing the game without dieing
 
 ### Stretch
 - [ ] user can select their player name from a series of pre-recorded names (e.g. "draggon", "alpha", "silver").
+- [ ] user should be "rewarded" for completing the game without dieing
 
 ## License
 
