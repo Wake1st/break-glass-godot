@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bj1bvw4xy7wo6"
+path="res://.godot/imported/announcer - finished.mp3-c05fcab6699423173f0468a8ba8ab301.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/announcer - finished.mp3"
+dest_files=["res://.godot/imported/announcer - finished.mp3-c05fcab6699423173f0468a8ba8ab301.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

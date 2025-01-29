@@ -29,6 +29,11 @@ const LAST_LEVEL_ID: int = 16
 @onready var levelRoot: Node2D = $LevelRoot
 @onready var levelTimer: Timer = %LevelTimer
 @onready var musicPlayer: MusicPlayer = %MusicPlayer
+@onready var levelSFX: LevelSFX = %LevelSFX
+@onready var background: CanvasLayer = %BackgroundCanvas
+
+@onready var introAnimation: IntroAnimation = $IntroAnimation
+@onready var practiceAnimation: PracticeAnimation = $PracticeAnimation
 
 var currentMenu: Panel
 var currentLevel: Level
@@ -41,13 +46,18 @@ var currentStageId: int = 1
 var highestLevelId: int = 0
 var highestStageId: int = 0
 
+# settings for practice menu (can these be move to the menu?)
 var atLowerLimit: bool = true
 var atUpperLimit: bool = true
 
+var playedIntroAnimation: bool = false
+var playerPracticeAnimation: bool = false
+
 
 func _ready() -> void:
-	# first, pause the game
-	get_tree().paused = true
+	# animation setup
+	introAnimation.finished.connect(handle_intro_animation_finish)
+	practiceAnimation.finished.connect(handle_practice_animation_finish)
 	
 	# menu setup
 	currentMenu = mainMenu
@@ -72,9 +82,31 @@ func _ready() -> void:
 	# unlock the first level for practice
 	practice_unlock_check(1)
 
-	# play this music
-	musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
 
+func _process(_delta):
+	if !playedIntroAnimation:
+		playedIntroAnimation = true
+		introAnimation.run()
+
+#region Animations
+
+func handle_intro_animation_finish() -> void:
+	# play menu music
+	musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
+	
+	# show the main menu and backgound
+	background.visible = true
+	mainMenu.visible = true
+	
+	# pause the game
+	get_tree().paused = true
+
+
+func handle_practice_animation_finish() -> void:
+	# first, pause the game
+	get_tree().paused = true
+
+#endregion
 
 #region UI Navigation
 
@@ -87,8 +119,12 @@ func handle_menu_change(menu: MENUS) -> void:
 		MENUS.PLAY: currentMenu = playMenu
 		MENUS.PRACTICE: currentMenu = practiceMenu
 		MENUS.SETTINGS: currentMenu = settingsMenu
-		MENUS.RESULT: currentMenu = resultMenu
-		MENUS.FAILURE: currentMenu = failureMenu
+		MENUS.RESULT: 
+			currentMenu = resultMenu
+			levelSFX.play_success()
+		MENUS.FAILURE: 
+			currentMenu = failureMenu
+			levelSFX.play_failure()
 		MENUS.PRACTICE_RESULT: 
 			currentMenu = practiceLevelMenu
 			practiceLevelMenu.disable_prev(atLowerLimit)

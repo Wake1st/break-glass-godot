@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://rk0kylgqfgeg"]
+
+[ext_resource type="Script" path="res://main/level_sfx.gd" id="1_b1bs5"]
+
+[node name="LevelSFX" type="Node"]
+script = ExtResource("1_b1bs5")
+
+[node name="Announcer" type="AudioStreamPlayer" parent="."]
+
+[node name="Crowd" type="AudioStreamPlayer" parent="."]

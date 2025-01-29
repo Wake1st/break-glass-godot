@@ -15,7 +15,7 @@ Navigate the character through glass mazes by launching and landing onto and thr
 - [x] user should be able to adjust the sounds
 - [x] user should get small tutorials telling them how to play the game
   - [x] user should be slowed down to allow them time to understand the "flip" mechanic
-- [ ] user should see and intro cutscene every playthrough
+- [x] user should see and intro cutscene every playthrough
 - [ ] user should be guided to the practice section after the first death
 
 ### Stretch

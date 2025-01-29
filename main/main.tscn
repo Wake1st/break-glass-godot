@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmumsdf3nd4u7"]
+[gd_scene load_steps=15 format=3 uid="uid://cmumsdf3nd4u7"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_075jk"]
 [ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/game_menus/main_menu.tscn" id="2_64sp3"]
+[ext_resource type="PackedScene" uid="uid://rk0kylgqfgeg" path="res://main/level_sfx.tscn" id="3_jufhw"]
+[ext_resource type="Texture2D" uid="uid://hljare4cmxc" path="res://assets/images/background.png" id="3_ovoi2"]
 [ext_resource type="PackedScene" uid="uid://bm43hytbyufwc" path="res://ui/game_menus/settings_menu.tscn" id="3_r8b4b"]
 [ext_resource type="PackedScene" uid="uid://m35jtq8jrbbc" path="res://ui/game_menus/play_menu.tscn" id="4_ixsxk"]
 [ext_resource type="PackedScene" uid="uid://hejv5a6iyj7e" path="res://ui/game_menus/practice_menu.tscn" id="5_rt8fq"]
@@ -10,9 +12,35 @@
 [ext_resource type="PackedScene" uid="uid://ca13mevyyk4eo" path="res://ui/level_menus/failure_menu.tscn" id="7_mnkgp"]
 [ext_resource type="PackedScene" uid="uid://cp4lva8wwdwdh" path="res://ui/level_menus/tutorials.tscn" id="9_4hkpb"]
 [ext_resource type="PackedScene" uid="uid://3c6hq4pp2wwj" path="res://main/music_player.tscn" id="9_hrugw"]
+[ext_resource type="PackedScene" uid="uid://b3ffk0nfiqktt" path="res://animations/intro_animation.tscn" id="11_fdss0"]
+[ext_resource type="PackedScene" uid="uid://crqsag6abhcy5" path="res://animations/practice_animation.tscn" id="12_jsj1p"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_075jk")
+
+[node name="Misc" type="Node" parent="."]
+
+[node name="LevelTimer" type="Timer" parent="Misc"]
+unique_name_in_owner = true
+wait_time = 51.0
+one_shot = true
+
+[node name="MusicPlayer" parent="Misc" instance=ExtResource("9_hrugw")]
+unique_name_in_owner = true
+process_mode = 3
+
+[node name="LevelSFX" parent="Misc" instance=ExtResource("3_jufhw")]
+unique_name_in_owner = true
+
+[node name="BackgroundCanvas" type="CanvasLayer" parent="Misc"]
+unique_name_in_owner = true
+layer = -1
+visible = false
+
+[node name="Background" type="Sprite2D" parent="Misc/BackgroundCanvas"]
+scale = Vector2(36, 20.25)
+texture = ExtResource("3_ovoi2")
+centered = false
 
 [node name="LevelRoot" type="Node2D" parent="."]
 
@@ -23,6 +51,7 @@ unique_name_in_owner = true
 
 [node name="MainMenu" parent="UIRoot" instance=ExtResource("2_64sp3")]
 unique_name_in_owner = true
+visible = false
 
 [node name="PlayMenu" parent="UIRoot" instance=ExtResource("4_ixsxk")]
 unique_name_in_owner = true
@@ -48,14 +77,10 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="Misc" type="Node" parent="."]
+[node name="IntroAnimation" parent="." instance=ExtResource("11_fdss0")]
+visible = false
 
-[node name="LevelTimer" type="Timer" parent="Misc"]
-unique_name_in_owner = true
-wait_time = 51.0
-one_shot = true
-
-[node name="MusicPlayer" parent="Misc" instance=ExtResource("9_hrugw")]
-unique_name_in_owner = true
+[node name="PracticeAnimation" parent="." instance=ExtResource("12_jsj1p")]
+visible = false
 
 [connection signal="timeout" from="Misc/LevelTimer" to="." method="_on_level_timer_timeout"]
