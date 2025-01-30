@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://du084l6kf3hyc"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_573tm"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_v1fdu"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_m6y2a"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_fwkpe"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_6hxam"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_fvvva"]
+[ext_resource type="Texture2D" uid="uid://diglnftvt0j6l" path="res://assets/images/arrow.png" id="7_p71a8"]
+
+[node name="Level_7" type="Node2D"]
+script = ExtResource("1_573tm")
+
+[node name="Start" parent="." instance=ExtResource("2_v1fdu")]
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
+position = Vector2(-400, 1083)
+
+[node name="Panel7" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
+position = Vector2(-400, 1747)
+rotation = -3.14159
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
+position = Vector2(-400, 177)
+
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
+position = Vector2(-400, 367)
+
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
+position = Vector2(-400, 656)
+rotation = 3.14159
+
+[node name="Player" parent="." instance=ExtResource("4_fwkpe")]
+
+[node name="Goal" parent="." instance=ExtResource("5_6hxam")]
+position = Vector2(0, 1823)
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_fvvva")]
+position = Vector2(0, 2609)
+
+[node name="Helper" type="Sprite2D" parent="."]
+position = Vector2(-400, 0)
+rotation = 3.14159
+texture = ExtResource("7_p71a8")

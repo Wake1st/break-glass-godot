@@ -1,0 +1,985 @@
+[gd_scene load_steps=7 format=3 uid="uid://bikfjtpygb6wx"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_vxli6"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_ccctd"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_r0crw"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_8xpcl"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_7axob"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_d0p0y"]
+
+[node name="Level_4" type="Node2D"]
+script = ExtResource("1_vxli6")
+
+[node name="Start" parent="." instance=ExtResource("2_ccctd")]
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(412, -136)
+rotation = 0.785398
+durability = 4
+
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-277, -391)
+rotation = 2.35619
+durability = 2
+
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-520, 107)
+rotation = 1.309
+durability = 2
+
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(843, 49)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel6" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(528, 363)
+rotation = 3.40339
+durability = 4
+
+[node name="Panel7" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-348, -920)
+rotation = -1.0472
+durability = 4
+
+[node name="Panel8" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(347, -882)
+rotation = -0.261799
+durability = 1
+
+[node name="Panel9" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(192, -589)
+rotation = 4.45059
+durability = 2
+
+[node name="Panel10" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(299, 801)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel11" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(228, 272)
+rotation = -1.0472
+durability = 2
+
+[node name="Panel12" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(768, 603)
+rotation = 3.66519
+durability = 2
+
+[node name="Panel47" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2000, 786)
+rotation = 0.523599
+durability = 2
+
+[node name="Panel48" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1350, 1285)
+rotation = -0.523599
+durability = 4
+
+[node name="Panel49" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2240, 1026)
+rotation = 0.785398
+durability = 1
+
+[node name="Panel15" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(691, -503)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel23" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-892, 1008)
+rotation = -1.5708
+durability = 2
+
+[node name="Panel38" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1404, 277)
+rotation = -0.261799
+durability = 2
+
+[node name="Panel39" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2595, 484)
+rotation = -0.523599
+durability = 4
+
+[node name="Panel24" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-461, 1193)
+durability = 2
+
+[node name="Panel25" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(142, 1539)
+rotation = 2.61799
+durability = 4
+
+[node name="Panel26" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-797, 241)
+rotation = -2.35619
+durability = 2
+
+[node name="Panel27" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-613, 641)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel20" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1013, -1455)
+rotation = -1.309
+durability = 1
+
+[node name="Panel21" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1328, -1141)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel22" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-829, -1055)
+rotation = 1.309
+durability = 1
+
+[node name="Panel16" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1000, -680)
+rotation = 3.92699
+durability = 2
+
+[node name="Panel13" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-840, -605)
+rotation = 3.40339
+durability = 2
+
+[node name="Panel14" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-600, -365)
+rotation = 3.66519
+durability = 2
+
+[node name="Panel17" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(0, 1179)
+rotation = 1.5708
+durability = 4
+
+[node name="Panel174" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-53, 1692)
+rotation = 0.785398
+durability = 2
+
+[node name="Panel32" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1389, -167)
+rotation = -3.66519
+durability = 1
+
+[node name="Panel33" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1704, 147)
+rotation = 1.0472
+durability = 4
+
+[node name="Panel34" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-928, -181)
+rotation = 0.785398
+durability = 4
+
+[node name="Panel18" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-320, 467)
+rotation = 3.40339
+durability = 2
+
+[node name="Panel19" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-80, 707)
+rotation = 4.45059
+durability = 4
+
+[node name="Panel40" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1163, 831)
+rotation = -2.0944
+durability = 2
+
+[node name="Panel41" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2354, 1038)
+rotation = -4.97419
+durability = 2
+
+[node name="Panel42" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1923, 1223)
+rotation = -3.92699
+durability = 2
+
+[node name="Panel43" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2238, 1537)
+rotation = -1.0472
+durability = 1
+
+[node name="Panel44" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2075, 671)
+rotation = -4.18879
+durability = 4
+
+[node name="Panel45" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1462, 1209)
+rotation = -1.8326
+durability = 2
+
+[node name="Panel46" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1542, 737)
+durability = 2
+
+[node name="Panel194" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1634, -2493)
+rotation = -2.35619
+durability = 1
+
+[node name="Panel195" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2371, -2229)
+rotation = -4.45059
+durability = 2
+
+[node name="Panel196" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2026, -2452)
+rotation = -3.14159
+durability = 2
+
+[node name="Panel28" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1238, -1541)
+rotation = 1.5708
+durability = 4
+
+[node name="Panel29" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(240, -1352)
+rotation = 4.97419
+durability = 2
+
+[node name="Panel30" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-688, -1509)
+rotation = 3.14159
+durability = 2
+
+[node name="Panel31" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-448, -1269)
+rotation = 4.45059
+durability = 2
+
+[node name="Panel56" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(358, 1226)
+rotation = -1.309
+durability = 2
+
+[node name="Panel57" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-128, 2150)
+rotation = 3.92699
+durability = 2
+
+[node name="Panel58" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(542, 1626)
+rotation = 2.0944
+durability = 1
+
+[node name="Panel59" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1771, 1308)
+rotation = 3.92699
+durability = 2
+
+[node name="Panel60" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(683, 1172)
+rotation = 2.35619
+durability = 4
+
+[node name="Panel61" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(923, 1412)
+rotation = 3.40339
+durability = 2
+
+[node name="Panel35" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1259, -215)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel36" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1584, -269)
+rotation = 4.71239
+durability = 2
+
+[node name="Panel37" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1824, -29)
+rotation = 5.49779
+durability = 4
+
+[node name="Panel50" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(823, 1047)
+rotation = 0.523599
+durability = 1
+
+[node name="Panel51" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(748, 1601)
+rotation = 4.71239
+durability = 2
+
+[node name="Panel52" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1140, 297)
+rotation = 6.02139
+durability = 2
+
+[node name="Panel172" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(37.9999, 2000)
+rotation = 3.66519
+durability = 2
+
+[node name="Panel173" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(302, 1840)
+rotation = 6.02139
+durability = 2
+
+[node name="Panel53" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1239, 783)
+durability = 2
+
+[node name="Panel69" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(673, -1378)
+rotation = 2.0944
+durability = 2
+
+[node name="Panel70" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2129, -1615)
+rotation = -1.309
+durability = 2
+
+[node name="Panel71" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1884, -915)
+rotation = -0.523599
+durability = 4
+
+[node name="Panel72" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(732, -953)
+rotation = -0.785398
+durability = 2
+
+[node name="Panel73" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1057, -1007)
+rotation = 2.87979
+durability = 4
+
+[node name="Panel74" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1517, -801)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel189" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2635, -2844)
+rotation = -1.0472
+durability = 4
+
+[node name="Panel190" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1940, -2806)
+rotation = -3.14159
+durability = 2
+
+[node name="Panel191" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1287, -2604)
+rotation = 3.66519
+durability = 2
+
+[node name="Panel192" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-403, -2839)
+rotation = -0.523599
+durability = 2
+
+[node name="Panel193" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-770, -2725)
+rotation = 1.0472
+durability = 4
+
+[node name="Panel75" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1773, -1417)
+rotation = 0.523599
+durability = 2
+
+[node name="Panel62" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2241, -519)
+durability = 2
+
+[node name="Panel63" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2166, 34.9999)
+rotation = 4.45059
+durability = 1
+
+[node name="Panel64" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2208, -1269)
+rotation = 3.40339
+durability = 2
+
+[node name="Panel65" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2321, 844)
+rotation = 3.14159
+durability = 2
+
+[node name="Panel66" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2221, 479)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel67" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2538, -271)
+rotation = 3.66519
+durability = 4
+
+[node name="Panel88" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3610, 1408)
+rotation = 0.523599
+durability = 1
+
+[node name="Panel89" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3285, 1354)
+rotation = 3.66519
+durability = 4
+
+[node name="Panel90" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3045, 1594)
+rotation = 4.97419
+durability = 2
+
+[node name="Panel91" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3567, 26)
+rotation = 6.02139
+durability = 2
+
+[node name="Panel92" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2985, 708)
+rotation = 0.261799
+durability = 1
+
+[node name="Panel93" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3352, 822)
+durability = 2
+
+[node name="Panel94" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3096, 206)
+rotation = 1.8326
+durability = 2
+
+[node name="Panel95" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2628, 1104)
+rotation = 1.309
+durability = 2
+
+[node name="Panel96" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2703, 1658)
+rotation = 5.49779
+durability = 2
+
+[node name="Panel169" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-957, 1462)
+rotation = 3.92699
+durability = 4
+
+[node name="Panel170" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-501, 1588)
+rotation = 5.23599
+durability = 2
+
+[node name="Panel171" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-375, 1893)
+rotation = 4.18879
+durability = 4
+
+[node name="Panel97" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2311, 354)
+rotation = 5.49779
+durability = 2
+
+[node name="Panel98" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2331, 1352)
+rotation = 5.75959
+durability = 4
+
+[node name="Panel68" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2637, 215)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel54" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1564, 729)
+rotation = 4.45059
+durability = 4
+
+[node name="Panel55" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1804, 969)
+rotation = 4.71239
+durability = 2
+
+[node name="Panel117" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2997, -2028)
+rotation = 3.14159
+durability = 4
+
+[node name="Panel118" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1154, -43.9995)
+rotation = 4.45059
+durability = 2
+
+[node name="Panel119" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1412, -1846)
+rotation = -1.5708
+durability = 2
+
+[node name="Panel120" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1388, -1534)
+rotation = -1.309
+durability = 4
+
+[node name="Panel121" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3757, -1636)
+rotation = 0.261799
+durability = 2
+
+[node name="Panel122" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3909, -2188)
+rotation = 1.0472
+durability = 4
+
+[node name="Panel123" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3296, -1650)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel124" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3616, -2362)
+rotation = 3.40339
+durability = 1
+
+[node name="Panel125" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3376, -2122)
+rotation = 6.02139
+durability = 2
+
+[node name="Panel126" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2938, -1603)
+rotation = -1.309
+durability = 1
+
+[node name="Panel127" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2613, -1657)
+rotation = 2.0944
+durability = 2
+
+[node name="Panel128" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2257, -1854)
+rotation = -0.523599
+durability = 2
+
+[node name="Panel129" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1841, -2118)
+rotation = -3.92699
+durability = 2
+
+[node name="Panel130" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1091, -1788)
+rotation = 1.8326
+durability = 2
+
+[node name="Panel131" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1075, -2350)
+rotation = 0.785398
+durability = 2
+
+[node name="Panel132" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1516, -2172)
+rotation = 3.40339
+durability = 4
+
+[node name="Panel133" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1824, -1591)
+rotation = -0.261799
+durability = 2
+
+[node name="Panel76" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2442, -90)
+rotation = 2.61799
+durability = 1
+
+[node name="Panel77" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2202, 150)
+rotation = 1.309
+durability = 2
+
+[node name="Panel78" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2858, -1145)
+rotation = 3.92699
+durability = 4
+
+[node name="Panel79" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2618, -905)
+rotation = 4.45059
+durability = 2
+
+[node name="Panel80" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2201, -1395)
+rotation = -3.14159
+durability = 2
+
+[node name="Panel81" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2276, -841)
+rotation = 2.35619
+durability = 2
+
+[node name="Panel82" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2121, -31.9999)
+rotation = 3.66519
+durability = 2
+
+[node name="Panel83" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2221, -397)
+rotation = -0.261799
+durability = 2
+
+[node name="Panel84" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1904, -1147)
+rotation = -0.785398
+durability = 1
+
+[node name="Panel85" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-1805, -661)
+rotation = -1.8326
+durability = 4
+
+[node name="Panel178" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(4342, -2735)
+rotation = -1.0472
+durability = 4
+
+[node name="Panel179" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(4258, -3440)
+rotation = -3.40339
+durability = 2
+
+[node name="Panel180" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(4282, -3128)
+rotation = -3.14159
+durability = 2
+
+[node name="Panel181" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3846, -3185)
+rotation = 0.785398
+durability = 4
+
+[node name="Panel182" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3766, -2741)
+durability = 2
+
+[node name="Panel183" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3769, -2099)
+rotation = -4.45059
+durability = 2
+
+[node name="Panel134" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(401, -1914)
+rotation = 0.261799
+durability = 4
+
+[node name="Panel135" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(416, -2358)
+rotation = -3.14159
+durability = 1
+
+[node name="Panel136" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(101, -2044)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel137" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-506, -1837)
+rotation = 5.75959
+durability = 2
+
+[node name="Panel138" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(651, -2235)
+rotation = 4.97419
+durability = 2
+
+[node name="Panel139" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-637, -2281)
+rotation = 2.87979
+durability = 1
+
+[node name="Panel140" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-397, -2041)
+rotation = 1.5708
+durability = 2
+
+[node name="Panel141" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-316, -2223)
+rotation = 3.92699
+durability = 2
+
+[node name="Panel142" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-416, -2588)
+durability = 4
+
+[node name="Panel143" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(0, -2852)
+rotation = -0.261799
+durability = 2
+
+[node name="Panel109" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3307, -697)
+rotation = 0.785398
+durability = 4
+
+[node name="Panel110" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2936, -173)
+rotation = -4.97419
+durability = 1
+
+[node name="Panel111" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2700, -490)
+rotation = 4.71239
+durability = 2
+
+[node name="Panel184" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-4082, -2384)
+rotation = 5.49779
+durability = 2
+
+[node name="Panel185" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3665, -2874)
+durability = 2
+
+[node name="Panel186" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3166, -2330)
+rotation = 4.97419
+durability = 2
+
+[node name="Panel187" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2768, -2232)
+rotation = -3.66519
+durability = 4
+
+[node name="Panel188" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3206, -2845)
+rotation = 4.71239
+durability = 2
+
+[node name="Panel175" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2418, 2174)
+rotation = 3.14159
+durability = 1
+
+[node name="Panel176" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2768, 2248)
+rotation = -5.49779
+durability = 1
+
+[node name="Panel177" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2532, 1931)
+rotation = 4.18879
+durability = 1
+
+[node name="Panel112" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2569, -934)
+rotation = 1.309
+durability = 2
+
+[node name="Panel113" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1704, 365)
+rotation = 1.8326
+durability = 1
+
+[node name="Panel164" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2417, 1714)
+durability = 1
+
+[node name="Panel165" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2620, 2488)
+rotation = 3.40339
+durability = 1
+
+[node name="Panel166" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1981, 1657)
+rotation = 3.92699
+durability = 1
+
+[node name="Panel167" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2221, 1897)
+rotation = 4.18879
+durability = 1
+
+[node name="Panel168" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2121, 1293)
+rotation = 1.8326
+durability = 4
+
+[node name="Panel114" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2890, -876)
+rotation = 2.87979
+durability = 2
+
+[node name="Panel115" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2790, -1241)
+rotation = -0.261799
+durability = 2
+
+[node name="Panel144" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1372, -2460)
+durability = 4
+
+[node name="Panel145" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1005, -1924)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel146" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1261, -2962)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel147" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1696, -2814)
+rotation = 3.92699
+durability = 1
+
+[node name="Panel148" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1904, -1922)
+rotation = 2.35619
+durability = 2
+
+[node name="Panel149" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(1543, -1963)
+rotation = 3.92699
+durability = 2
+
+[node name="Panel150" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2027, -2454)
+rotation = -2.35619
+durability = 4
+
+[node name="Panel116" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3314, -1173)
+durability = 1
+
+[node name="Panel99" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3308, -209)
+rotation = 0.785398
+durability = 2
+
+[node name="Panel100" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3958, 682)
+rotation = -4.45059
+durability = 4
+
+[node name="Panel101" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3679, 315)
+rotation = -3.40339
+durability = 1
+
+[node name="Panel102" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3915, -1.99969)
+rotation = 4.18879
+durability = 2
+
+[node name="Panel103" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-4046, -446)
+rotation = 1.309
+durability = 4
+
+[node name="Panel104" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3806, -206)
+durability = 2
+
+[node name="Panel105" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3880, -1197)
+rotation = 3.40339
+durability = 4
+
+[node name="Panel106" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3725, -388)
+rotation = 2.35619
+durability = 2
+
+[node name="Panel107" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3825, -753)
+rotation = -0.785398
+durability = 2
+
+[node name="Panel108" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-3409, -1017)
+rotation = -1.0472
+durability = 1
+
+[node name="Panel86" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2878, -147)
+rotation = 6.28319
+durability = 2
+
+[node name="Panel87" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(-2638, 93.0001)
+rotation = 6.80678
+durability = 2
+
+[node name="Panel151" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3858, -1653)
+rotation = -5.23599
+durability = 2
+
+[node name="Panel152" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3969, -2409)
+rotation = -8.37758
+durability = 2
+
+[node name="Panel153" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3558, -1783)
+rotation = -4.18879
+durability = 2
+
+[node name="Panel154" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2987, -1442)
+rotation = 2.87979
+durability = 4
+
+[node name="Panel155" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(4204, -2286)
+rotation = -0.785398
+durability = 1
+
+[node name="Panel156" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2748, -2218)
+rotation = -1.8326
+durability = 2
+
+[node name="Panel157" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3240, -1766)
+rotation = -1.8326
+durability = 1
+
+[node name="Panel158" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2572, -3033)
+rotation = 1.0472
+durability = 2
+
+[node name="Panel159" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2914, -2969)
+durability = 2
+
+[node name="Panel160" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2333, -2196)
+rotation = 0.261799
+durability = 2
+
+[node name="Panel161" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2969, -2525)
+rotation = -3.14159
+durability = 2
+
+[node name="Panel162" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(3385, -2789)
+rotation = -3.40339
+durability = 4
+
+[node name="Panel163" parent="PlatformParent" instance=ExtResource("3_r0crw")]
+position = Vector2(2552, -2035)
+rotation = 2.35619
+durability = 4
+
+[node name="Player" parent="." instance=ExtResource("4_8xpcl")]
+
+[node name="Goal" parent="." instance=ExtResource("5_7axob")]
+position = Vector2(-4122, -87)
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_d0p0y")]
+position = Vector2(6, 3140)

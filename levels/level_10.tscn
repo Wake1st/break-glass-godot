@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqp7u4kaf1yyo"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_pfm62"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_v8146"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_fayj7"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_qk5hh"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_uje36"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_6lb5j"]
+
+[node name="Level_10" type="Node2D"]
+script = ExtResource("1_pfm62")
+
+[node name="Start" parent="." instance=ExtResource("2_v8146")]
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(420, 0)
+durability = 2
+
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(420, -300)
+rotation = 3.14159
+durability = 2
+
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(881, 0)
+durability = 2
+
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(881, -300)
+rotation = 3.14159
+durability = 2
+
+[node name="Panel6" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(1816, 0)
+durability = 2
+
+[node name="Panel7" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(1816, -300)
+rotation = 3.14159
+durability = 2
+
+[node name="Panel10" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(1345, 0)
+durability = 2
+
+[node name="Panel11" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(1345, -300)
+rotation = 3.14159
+durability = 2
+
+[node name="Panel8" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(2287, -150)
+durability = 2
+
+[node name="Panel9" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(2782, -300)
+durability = 2
+
+[node name="Panel12" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(3291, -441)
+durability = 2
+
+[node name="Panel13" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(3634, -149)
+durability = 2
+
+[node name="Panel14" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(3794, 213)
+durability = 2
+
+[node name="Panel15" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(3951, 663)
+durability = 2
+
+[node name="Panel16" parent="PlatformParent" instance=ExtResource("3_fayj7")]
+position = Vector2(4082, 1408)
+durability = 2
+
+[node name="Player" parent="." instance=ExtResource("4_qk5hh")]
+
+[node name="Goal" parent="." instance=ExtResource("5_uje36")]
+position = Vector2(3904, 1634)
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_6lb5j")]
+position = Vector2(0, 5276)

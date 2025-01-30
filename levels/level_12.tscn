@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://baqavuf6po6xc"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_ydbum"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_iyysx"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_0e3c3"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_6ssni"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_imsci"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_8d24s"]
+
+[node name="Level_12" type="Node2D"]
+script = ExtResource("1_ydbum")
+
+[node name="Start" parent="." instance=ExtResource("2_iyysx")]
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_0e3c3")]
+position = Vector2(-567, 57)
+rotation = 1.5708
+durability = 1
+
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_0e3c3")]
+position = Vector2(-100, 242)
+rotation = 1.5708
+durability = 1
+
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_0e3c3")]
+position = Vector2(-567, 442)
+rotation = 1.5708
+durability = 1
+
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_0e3c3")]
+position = Vector2(-100, 699)
+rotation = 1.5708
+durability = 1
+
+[node name="Panel6" parent="PlatformParent" instance=ExtResource("3_0e3c3")]
+position = Vector2(-567, 991)
+rotation = 1.5708
+durability = 1
+
+[node name="Panel7" parent="PlatformParent" instance=ExtResource("3_0e3c3")]
+position = Vector2(-100, 1344)
+rotation = 1.5708
+durability = 1
+
+[node name="Player" parent="." instance=ExtResource("4_6ssni")]
+
+[node name="Goal" parent="." instance=ExtResource("5_imsci")]
+position = Vector2(-41, 1343)
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_8d24s")]
+position = Vector2(0, 1596)

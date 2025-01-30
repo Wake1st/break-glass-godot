@@ -9,8 +9,8 @@ signal level_selected(scene: PackedScene)
 
 var stage1Scene: PackedScene = load("res://levels/level_1.tscn")
 var stage2Scene: PackedScene = load("res://levels/level_5.tscn")
-# var stage3Scene: PackedScene = load("res://levels/level_9.tscn")
-# var stage4Scene: PackedScene = load("res://levels/level_13.tscn")
+var stage3Scene: PackedScene = load("res://levels/level_9.tscn")
+var stage4Scene: PackedScene = load("res://levels/level_13.tscn")
 
 
 func enable_stage(number: int) -> void:
@@ -32,9 +32,9 @@ func _on_play_stage_2_pressed() -> void:
 	level_selected.emit(stage2Scene)
 
 
-# func _on_play_stage_3_pressed() -> void:
-# 	level_selected.emit(stage3Scene)
+func _on_play_stage_3_pressed() -> void:
+	level_selected.emit(stage3Scene)
 
 
-# func _on_play_stage_4_pressed() -> void:
-# 	level_selected.emit(stage4Scene)
+func _on_play_stage_4_pressed() -> void:
+	level_selected.emit(stage4Scene)

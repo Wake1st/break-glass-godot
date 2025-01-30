@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://nsvswcy650is"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_7i2og"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_avik2"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_hp5kc"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_itgnd"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_wacs7"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_4g0ak"]
+
+[node name="Level_9" type="Node2D"]
+script = ExtResource("1_7i2og")
+
+[node name="Start" parent="." instance=ExtResource("2_avik2")]
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(527, 18)
+
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(238, -341)
+
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(1124, 18)
+
+[node name="Panel6" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(818, -341)
+
+[node name="Panel7" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(1684, 18)
+
+[node name="Panel8" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(1378, -341)
+
+[node name="Panel9" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(2234, 18)
+
+[node name="Panel10" parent="PlatformParent" instance=ExtResource("3_hp5kc")]
+position = Vector2(1928, -341)
+
+[node name="Player" parent="." instance=ExtResource("4_itgnd")]
+position = Vector2(0, 2)
+
+[node name="Goal" parent="." instance=ExtResource("5_wacs7")]
+position = Vector2(2576, -335)
+rotation = -1.57079
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_4g0ak")]
+position = Vector2(0, 600)

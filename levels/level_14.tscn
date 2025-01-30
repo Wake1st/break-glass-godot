@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv8u7rglpdfkf"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_8asfc"]
+[ext_resource type="PackedScene" uid="uid://jvk44jgaptay" path="res://levels/components/start.tscn" id="2_hm5oy"]
+[ext_resource type="PackedScene" uid="uid://diylur7volu7j" path="res://levels/components/platform.tscn" id="3_lb5di"]
+[ext_resource type="PackedScene" uid="uid://cryqnjk6ljur4" path="res://levels/player/player.tscn" id="4_a301r"]
+[ext_resource type="PackedScene" uid="uid://deb4ccl8wguj8" path="res://levels/components/goal.tscn" id="5_p10cu"]
+[ext_resource type="PackedScene" uid="uid://cc6qnmfrc335n" path="res://levels/components/fall_boundary.tscn" id="6_ipic6"]
+
+[node name="Level_14" type="Node2D"]
+script = ExtResource("1_8asfc")
+
+[node name="Start" parent="." instance=ExtResource("2_hm5oy")]
+rotation = -0.523599
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Panel2" parent="PlatformParent" instance=ExtResource("3_lb5di")]
+position = Vector2(404, -72)
+rotation = 0.523599
+
+[node name="Panel3" parent="PlatformParent" instance=ExtResource("3_lb5di")]
+position = Vector2(-3, -372)
+rotation = 2.61799
+
+[node name="Panel4" parent="PlatformParent" instance=ExtResource("3_lb5di")]
+position = Vector2(415, -617)
+rotation = 3.66519
+
+[node name="Panel5" parent="PlatformParent" instance=ExtResource("3_lb5di")]
+position = Vector2(-6, -871)
+rotation = 2.61799
+
+[node name="Panel6" parent="PlatformParent" instance=ExtResource("3_lb5di")]
+position = Vector2(425, -1233)
+rotation = 3.66519
+
+[node name="Player" parent="." instance=ExtResource("4_a301r")]
+
+[node name="Goal" parent="." instance=ExtResource("5_p10cu")]
+position = Vector2(1016, -1536)
+rotation = -0.261799
+
+[node name="FallBoundary" parent="." instance=ExtResource("6_ipic6")]
+position = Vector2(0, 600)

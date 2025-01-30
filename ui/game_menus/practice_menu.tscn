@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://hejv5a6iyj7e"]
+[gd_scene load_steps=19 format=3 uid="uid://hejv5a6iyj7e"]
 
 [ext_resource type="Script" path="res://ui/game_menus/practice_menu.gd" id="1_srr0q"]
 [ext_resource type="PackedScene" uid="uid://bhof4a8f1hxf2" path="res://ui/components/practice_stage.tscn" id="1_vbpi7"]
@@ -7,6 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://cxca7gonc2v4h" path="res://levels/level_3.tscn" id="5_7uie7"]
 [ext_resource type="PackedScene" uid="uid://dqbysdyoubrvt" path="res://levels/level_4.tscn" id="6_8akko"]
 [ext_resource type="PackedScene" uid="uid://cu1fnscanp6py" path="res://levels/level_5.tscn" id="7_p5l1i"]
+[ext_resource type="PackedScene" uid="uid://3vbrdoxg13hv" path="res://levels/level_6.tscn" id="8_48fx7"]
+[ext_resource type="PackedScene" uid="uid://du084l6kf3hyc" path="res://levels/level_7.tscn" id="9_23utn"]
+[ext_resource type="PackedScene" uid="uid://bkwlemqjjvc3f" path="res://levels/level_8.tscn" id="10_1tbmr"]
+[ext_resource type="PackedScene" uid="uid://nsvswcy650is" path="res://levels/level_9.tscn" id="11_jmd1v"]
+[ext_resource type="PackedScene" uid="uid://dqp7u4kaf1yyo" path="res://levels/level_10.tscn" id="12_inbj3"]
+[ext_resource type="PackedScene" uid="uid://6tarph742shu" path="res://levels/level_11.tscn" id="13_i2kq7"]
+[ext_resource type="PackedScene" uid="uid://baqavuf6po6xc" path="res://levels/level_12.tscn" id="14_4h043"]
+[ext_resource type="PackedScene" uid="uid://1bpdxkjbh1vo" path="res://levels/level_13.tscn" id="15_i4001"]
+[ext_resource type="PackedScene" uid="uid://cv8u7rglpdfkf" path="res://levels/level_14.tscn" id="16_uxdpe"]
+[ext_resource type="PackedScene" uid="uid://c7wcff3sqdyg2" path="res://levels/level_15.tscn" id="17_v5ddv"]
+[ext_resource type="PackedScene" uid="uid://bikfjtpygb6wx" path="res://levels/level_16.tscn" id="18_celb0"]
 
 [node name="PracticeMenu" type="Panel"]
 process_mode = 2
@@ -83,16 +94,27 @@ unique_name_in_owner = true
 layout_mode = 2
 stageName = "Horror"
 levelAScene = ExtResource("7_p5l1i")
+levelBScene = ExtResource("8_48fx7")
+levelCScene = ExtResource("9_23utn")
+levelDScene = ExtResource("10_1tbmr")
 
 [node name="PracticeStage_3" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
 unique_name_in_owner = true
 layout_mode = 2
 stageName = "Terror"
+levelAScene = ExtResource("11_jmd1v")
+levelBScene = ExtResource("12_inbj3")
+levelCScene = ExtResource("13_i2kq7")
+levelDScene = ExtResource("14_4h043")
 
 [node name="PracticeStage_4" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_vbpi7")]
 unique_name_in_owner = true
 layout_mode = 2
 stageName = "Dread"
+levelAScene = ExtResource("15_i4001")
+levelBScene = ExtResource("16_uxdpe")
+levelCScene = ExtResource("17_v5ddv")
+levelDScene = ExtResource("18_celb0")
 
 [connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
 [connection signal="practice_level_selected" from="MarginContainer/VBoxContainer/PracticeStage_1" to="." method="_on_practice_level_selected"]
