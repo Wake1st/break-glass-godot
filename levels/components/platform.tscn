@@ -43,8 +43,11 @@ rotation = 3.14159
 scale = Vector2(0.595238, 0.173611)
 polygon = PackedVector2Array(-146.42, 41.8101, -119.54, -50.35, 95.5, -50.3501, 122.38, 41.81)
 
-[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="ThumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jqhiv")
+bus = &"SFX"
+
+[node name="GlassSound" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
 
 [connection signal="body_entered" from="DetectionTop" to="." method="_on_detection_body_entered"]

@@ -37,7 +37,6 @@ const LAST_LEVEL_ID: int = 16
 
 var currentMenu: Panel
 var currentLevel: Level
-var levelList: LevelList = LevelList.new()
 var showTutorials: bool = true
 var isPractice: bool
 
@@ -244,7 +243,7 @@ func handle_reset_stage() -> void:
 	
 	# reset at the beginning of the stage
 	currentLevelId = currentStageId * 4 - 3
-	var scene = levelList.levels[currentLevelId]
+	var scene = LevelList.levels[currentLevelId]
 	setup_level(scene)
 	
 	# disable the current menu
@@ -263,7 +262,7 @@ func handle_next_level() -> void:
 	currentLevelId += 1
 	
 	# setup new level
-	var scene = levelList.levels[currentLevelId]
+	var scene = LevelList.levels[currentLevelId]
 	setup_level(scene)
 	
 	# set the highest level for training
@@ -271,7 +270,7 @@ func handle_next_level() -> void:
 	
 	# every 4th level should unlock the next stage
 	stage_unlock_check(currentLevelId)
-		
+	
 	# disable the current menu
 	currentMenu.visible = false
 	
@@ -291,7 +290,7 @@ func handle_prev_practice_level() -> void:
 	set_level_navigation_limits(currentLevelId)
 	
 	# setup new level
-	var scene = levelList.levels[currentLevelId]
+	var scene = LevelList.levels[currentLevelId]
 	setup_level(scene)
 	
 	# disable the current menu
@@ -303,7 +302,7 @@ func handle_replay_practice_level() -> void:
 	disconnect_level()
 	
 	# setup new level
-	var scene = levelList.levels[currentLevelId]
+	var scene = LevelList.levels[currentLevelId]
 	setup_level(scene)
 	
 	# disable the current menu
@@ -318,7 +317,7 @@ func handle_next_practice_level() -> void:
 	set_level_navigation_limits(currentLevelId)
 	
 	# setup new level
-	var scene = levelList.levels[currentLevelId]
+	var scene = LevelList.levels[currentLevelId]
 	isPractice = true
 	setup_level(scene)
 	
@@ -376,7 +375,7 @@ func set_level_navigation_limits(id: int) -> void:
 
 ### Takes a scene and returns a level id
 func get_level_id(scene: PackedScene) -> int:
-	return levelList.levels.find_key(scene)
+	return LevelList.levels.find_key(scene)
 
 
 ### Checks to see if tutorials need to be run

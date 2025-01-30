@@ -11,14 +11,14 @@ signal platform_broken()
 
 @onready var image: Sprite2D = $Image
 @onready var boundary: StaticBody2D = $Boundary
-@onready var sfxPlayer: AudioStreamPlayer2D = $SFXPlayer
+@onready var thumpAudio: AudioStreamPlayer2D = $ThumpSound
 
 var shardScene: PackedScene = preload("res://levels/components/shard.tscn")
 var isBroken: bool = false
 
 
 func _ready() -> void:
-	sfxPlayer.volume_db = linear_to_db(0.8)
+	thumpAudio.volume_db = linear_to_db(0.8)
 
 
 func _on_detection_body_entered(body:Node2D) -> void:
@@ -33,7 +33,7 @@ func _on_detection_body_entered(body:Node2D) -> void:
 				break_glass(player.velocity)
 			else:
 				player.surfaceForward = global_transform.x.angle()
-				sfxPlayer.play()
+				thumpAudio.play()
 
 
 
@@ -53,6 +53,9 @@ func break_glass(velocity: Vector2) -> void:
 	# create some shards from the shattering
 	for i in 4:
 		create_shard(i, velocity)
+	
+	# almost forgot... play the sound
+	create_glass_sfx()
 
 
 func create_shard(i: int, vel: Vector2) -> void:
@@ -61,3 +64,11 @@ func create_shard(i: int, vel: Vector2) -> void:
 	
 	var x = SHARD_START + SHARD_OFFSET * i
 	shard.set_piece(Vector2(x, 0), vel * VELOCITY / abs(x))
+
+
+func create_glass_sfx() -> void:
+	var player = AudioStreamPlayer2D.new()
+	add_child(player)
+	player.stream = GlassSounds.get_rand_sound()
+	player.pitch_scale = 1 + randf_range(-0.1, 0.1)
+	player.play()
