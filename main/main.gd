@@ -388,6 +388,7 @@ func handle_toggle_tutorial(on: bool) -> void:
 
 
 func _on_level_timer_timeout():
-	print("timed out failure!")
+	get_tree().paused = true
+	handle_level_failed()
 
 #endregion
