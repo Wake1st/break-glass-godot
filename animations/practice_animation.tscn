@@ -425,8 +425,10 @@ script = ExtResource("1_iurv2")
 [node name="StageTimer" type="Timer" parent="."]
 
 [node name="CoachAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="TerryAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="CoachAnimator" type="AnimationPlayer" parent="."]
 libraries = {

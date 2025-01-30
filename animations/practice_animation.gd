@@ -31,7 +31,6 @@ func run() -> void:
 
 func run_stage() -> void:
 	# run the stage
-	print("stage: %s" % stage)
 	match stage:
 		0: stage_0()
 		1: stage_1()
