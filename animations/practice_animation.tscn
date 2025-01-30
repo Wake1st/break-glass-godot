@@ -1,6 +1,460 @@
-[gd_scene load_steps=2 format=3 uid="uid://crqsag6abhcy5"]
+[gd_scene load_steps=13 format=3 uid="uid://crqsag6abhcy5"]
 
 [ext_resource type="Script" path="res://animations/practice_animation.gd" id="1_iurv2"]
+[ext_resource type="Texture2D" uid="uid://bp1hgeinxe24n" path="res://assets/images/Coach.png" id="2_ypdve"]
+[ext_resource type="Texture2D" uid="uid://c6fvgjefg3fav" path="res://assets/images/Terry.png" id="3_ul7pa"]
+
+[sub_resource type="Animation" id="Animation_82p4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Terry:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ky4lo"]
+resource_name = "terry"
+length = 2.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Terry:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+
+[sub_resource type="Animation" id="Animation_62jpj"]
+resource_name = "coach"
+length = 0.6
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coach:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xh4r"]
+_data = {
+"RESET": SubResource("Animation_82p4r"),
+"coach": SubResource("Animation_62jpj"),
+"terry": SubResource("Animation_ky4lo")
+}
+
+[sub_resource type="Animation" id="Animation_0bpyh"]
+resource_name = "terry_1"
+length = 7.8
+step = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coach:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(576, -0.25, 0, 0.25, 0, 391, -0.25, 0, 0.25, 0, 391, -0.25, 0, 0.25, 0, -3, -0.25, 0, 0.25, 0, 550, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 2.4, 7, 7.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coach:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(324, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0, 375, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 2.4, 7, 7.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terry:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1372, -0.25, 0, 0.25, 0, 902.75, -0.25, 0, 0.25, 0, 902.75, -0.25, 0, 0.25, 0, 640, -0.25, 0, 0.25, 0, 1099, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 2.4, 7, 7.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Terry:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(408.75, -0.25, 0, 0.25, 0, 408.75, -0.25, 0, 0.25, 0, 408.75, -0.25, 0, 0.25, 0, 388, -0.25, 0, 0.25, 0, 388, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 2.4, 7, 7.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Coach:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(20.25, -0.25, 0, 0.25, 0, 23.4375, -0.25, 0, 0.25, 0, 20.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2.4, 7, 7.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Coach:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(20.25, -0.25, 0, 0.25, 0, 23.4375, -0.25, 0, 0.25, 0, 20.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2.4, 7, 7.4)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Terry:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(14.2031, -0.25, 0, 0.25, 0, 20.25, -0.25, 0, 0.25, 0, 14.2031, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2.4, 7, 7.4)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Terry:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(14.2031, -0.25, 0, 0.25, 0, 20.25, -0.25, 0, 0.25, 0, 14.2031, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(2.4, 7, 7.4)
+}
+
+[sub_resource type="Animation" id="Animation_w8nvw"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coach:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(576, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coach:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(324, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terry:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1423, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Terry:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(408.75, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Coach:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(23.4375, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Coach:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(23.4375, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Terry:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(20.25, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Terry:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(20.25, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_r30ur"]
+resource_name = "terry_2"
+length = 7.0
+step = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coach:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(550, -0.25, 0, 0.25, 0, 574, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coach:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(324, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 7)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terry:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1099, -0.25, 0, 0.25, 0, 1099, -0.25, 0, 0.25, 0, 1405, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.6, 7)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Terry:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(388, -0.25, 0, 0.25, 0, 388, -0.25, 0, 0.25, 0, 408.75, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.6, 7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Terry:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="Animation" id="Animation_ys34d"]
+resource_name = "terry_3"
+length = 14.0
+step = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Coach:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(574, -0.25, 0, 0.25, 0, 574, -0.25, 0, 0.25, 0, 569, -0.25, 0, 0.25, 0, 569, -0.25, 0, 0.25, 0, 581, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 10.2, 10.4, 13.4, 13.6)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Coach:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(324, -0.25, 0, 0.25, 0, 324, -0.25, 0, 0.25, 0, 559, -0.25, 0, 0.25, 0, 559, -0.25, 0, 0.25, 0, 488, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 10.2, 10.4, 13.4, 13.6)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terry:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(552, -0.25, 0, 0.25, 0, 552, -0.25, 0, 0.25, 0, 552, -0.25, 0, 0.25, 0, 506, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.67645, 3.6, 10.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Terry:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1798, -0.25, 0, 0.25, 0, 1081.98, -0.25, 0, 0.25, 0, 1081.98, -0.25, 0, 0.25, 0, 2120, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.67645, 3.6, 10.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Terry:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(67.626, -0.25, 0, 0.25, 0, 67.626, -0.25, 0, 0.25, 0, 143.531, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.6, 10.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Terry:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(67.626, -0.25, 0, 0.25, 0, 67.626, -0.25, 0, 0.25, 0, 143.531, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 3.6, 10.4)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Terry:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.2, 10.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Coach:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(20.25, -0.25, 0, 0.25, 0, 44.4375, -0.25, 0, 0.25, 0, 44.4375, -0.25, 0, 0.25, 0, 32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(10.2, 10.4, 13.4, 13.6)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Coach:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(20.25, -0.25, 0, 0.25, 0, 44.4375, -0.25, 0, 0.25, 0, 44.4375, -0.25, 0, 0.25, 0, 32, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(10.2, 10.4, 13.4, 13.6)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6sd2m"]
+_data = {
+"RESET": SubResource("Animation_w8nvw"),
+"terry_1": SubResource("Animation_0bpyh"),
+"terry_2": SubResource("Animation_r30ur"),
+"terry_3": SubResource("Animation_ys34d")
+}
 
 [node name="PracticeAnimation" type="Node2D"]
 script = ExtResource("1_iurv2")
+
+[node name="StageTimer" type="Timer" parent="."]
+
+[node name="CoachAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="TerryAudio" type="AudioStreamPlayer" parent="."]
+
+[node name="CoachAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8xh4r")
+}
+
+[node name="TerryAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8xh4r")
+}
+
+[node name="TransformAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6sd2m")
+}
+
+[node name="Coach" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(23.4375, 23.4375)
+texture = ExtResource("2_ypdve")
+hframes = 4
+
+[node name="Terry" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1423, 408.75)
+scale = Vector2(20.25, 20.25)
+texture = ExtResource("3_ul7pa")
+hframes = 4
+
+[connection signal="timeout" from="StageTimer" to="." method="_on_stage_timer_timeout"]

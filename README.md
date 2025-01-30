@@ -16,7 +16,7 @@ Navigate the character through glass mazes by launching and landing onto and thr
 - [x] user should get small tutorials telling them how to play the game
   - [x] user should be slowed down to allow them time to understand the "flip" mechanic
 - [x] user should see and intro cutscene every playthrough
-- [ ] user should be guided to the practice section after the first death
+- [x] user should see a practice cutscene explaining practice
 
 ### Stretch
 - [ ] user can select their player name from a series of pre-recorded names (e.g. "draggon", "alpha", "silver").
@@ -39,7 +39,7 @@ This games was made using the [bevy new 2D](https://the-bevy-flock.itch.io/bevy-
 - Joel Wakefield
 
 ### Audio
-- [Shapeforms - Dystopia - Ambience & Drone](https://shapeforms.itch.io/shapeforms-audio-free-sfx) 
+- [Shapeforms](https://shapeforms.itch.io/shapeforms-audio-free-sfx) 
 - Joel Wakefield
 
 ### Tools

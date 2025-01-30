@@ -1,14 +1,14 @@
 class_name IntroAnimation
 extends Node2D
 
+signal finished()
+
 const ANNOUNCER_READY: AudioStreamMP3 = preload("res://assets/voice/announcer - ready.mp3")
 const ANNOUNCER_QUESTION: AudioStreamMP3 = preload("res://assets/voice/announcer - question.mp3")
 const ANNOUNCER_WHAT: AudioStreamMP3 = preload("res://assets/voice/announcer - what.mp3")
 const CROWD_CHEER_SECOND: AudioStreamMP3 = preload("res://assets/sfx/crowd cheer 1.mp3")
 const CROWD_CHEER_FIRST: AudioStreamMP3 = preload("res://assets/sfx/crowd cheer 2.mp3")
 const CROWD_CHANT: AudioStreamMP3 = preload("res://assets/sfx/crowd chant.mp3")
-
-signal finished()
 
 @onready var stageTimer: Timer = $StageTimer
 @onready var animation: AnimationPlayer = $AnimationPlayer
@@ -20,13 +20,6 @@ signal finished()
 
 var stage: int = 0
 
-#
-#var testRun: bool = true
-#func _process(_delta):
-	#if testRun:
-		#testRun = false
-		#run()
-#
 
 func run() -> void:
 	announcer.visible = false

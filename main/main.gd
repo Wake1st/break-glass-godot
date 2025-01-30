@@ -51,7 +51,7 @@ var atLowerLimit: bool = true
 var atUpperLimit: bool = true
 
 var playedIntroAnimation: bool = false
-var playerPracticeAnimation: bool = false
+var playedPracticeAnimation: bool = false
 
 
 func _ready() -> void:
@@ -95,15 +95,28 @@ func handle_intro_animation_finish() -> void:
 	musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
 	
 	# show the main menu and backgound
-	background.visible = true
 	mainMenu.visible = true
 	
 	# pause the game
 	get_tree().paused = true
 
 
+func start_practice_animation() -> void:
+	musicPlayer.stop()
+	practiceMenu.visible = false
+	
+	get_tree().paused = false
+	practiceAnimation.run()
+
 func handle_practice_animation_finish() -> void:
-	# first, pause the game
+	# play menu music
+	musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
+	
+	# setup the menu
+	playedPracticeAnimation = true
+	practiceMenu.visible = true
+	
+	# pause the game
 	get_tree().paused = true
 
 #endregion
@@ -117,7 +130,11 @@ func handle_menu_change(menu: MENUS) -> void:
 	match menu:
 		MENUS.MAIN: currentMenu = mainMenu
 		MENUS.PLAY: currentMenu = playMenu
-		MENUS.PRACTICE: currentMenu = practiceMenu
+		MENUS.PRACTICE: 
+			currentMenu = practiceMenu
+			if !playedPracticeAnimation:
+				start_practice_animation()
+				return
 		MENUS.SETTINGS: currentMenu = settingsMenu
 		MENUS.RESULT: 
 			currentMenu = resultMenu
@@ -180,7 +197,7 @@ func handle_level_select(scene: PackedScene) -> void:
 	# start the level related resources
 	levelTimer.start()
 	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
-
+	
 	# display tutorials for the first level and second level
 	check_tutorials()
 
@@ -299,7 +316,7 @@ func handle_next_practice_level() -> void:
 	
 	# disable the current menu
 	currentMenu.visible = false
-
+	
 	# display tutorials for the first level and second level
 	check_tutorials()
 

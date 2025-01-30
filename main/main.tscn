@@ -35,7 +35,6 @@ unique_name_in_owner = true
 [node name="BackgroundCanvas" type="CanvasLayer" parent="Misc"]
 unique_name_in_owner = true
 layer = -1
-visible = false
 
 [node name="Background" type="Sprite2D" parent="Misc/BackgroundCanvas"]
 scale = Vector2(36, 20.25)
