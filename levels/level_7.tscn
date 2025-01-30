@@ -20,17 +20,18 @@ position = Vector2(-400, 1083)
 
 [node name="Panel7" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
 position = Vector2(-400, 1747)
-rotation = -3.14159
+rotation = -6.28318
 
 [node name="Panel2" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
 position = Vector2(-400, 177)
+rotation = -3.14159
 
 [node name="Panel3" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
 position = Vector2(-400, 367)
+rotation = -3.14159
 
 [node name="Panel4" parent="PlatformParent" instance=ExtResource("3_m6y2a")]
 position = Vector2(-400, 656)
-rotation = 3.14159
 
 [node name="Player" parent="." instance=ExtResource("4_fwkpe")]
 

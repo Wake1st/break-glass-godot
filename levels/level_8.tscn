@@ -99,14 +99,14 @@ durability = 2
 
 [node name="Player" parent="." instance=ExtResource("4_vt51j")]
 
-[node name="Goal2" parent="." instance=ExtResource("5_yoqts")]
+[node name="Goal" parent="." instance=ExtResource("5_yoqts")]
 position = Vector2(6081, 608)
 rotation = 1.57079
 
-[node name="FallBoundary2" parent="." instance=ExtResource("6_jj8jt")]
+[node name="FallBoundary" parent="." instance=ExtResource("6_jj8jt")]
 position = Vector2(0, 2088)
 
-[node name="Helper2" type="Sprite2D" parent="."]
+[node name="Helper" type="Sprite2D" parent="."]
 position = Vector2(6081, -681)
 rotation = 3.14159
 texture = ExtResource("7_twfwu")

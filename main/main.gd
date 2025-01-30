@@ -38,8 +38,11 @@ const LAST_LEVEL_ID: int = 16
 var currentMenu: Panel
 var currentLevel: Level
 var levelList: LevelList = LevelList.new()
-var isPractice: bool
 var showTutorials: bool = true
+var isPractice: bool
+
+var playedIntroAnimation: bool = false
+var playedPracticeAnimation: bool = false
 
 var currentLevelId: int = 1
 var currentStageId: int = 1
@@ -49,9 +52,6 @@ var highestStageId: int = 0
 # settings for practice menu (can these be move to the menu?)
 var atLowerLimit: bool = true
 var atUpperLimit: bool = true
-
-var playedIntroAnimation: bool = false
-var playedPracticeAnimation: bool = false
 
 
 func _ready() -> void:
@@ -155,6 +155,9 @@ func handle_menu_selected() -> void:
 		handle_menu_change(MENUS.PRACTICE)
 	else:
 		handle_menu_change(MENUS.PLAY)
+		
+		# play menu music
+		musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
 
 
 func handle_level_failed() -> void:
@@ -172,10 +175,11 @@ func handle_level_finished(platformsBroken: int) -> void:
 		var result = LevelResult.new(platformsBroken, levelTimer.time_left)
 		resultMenu.display_result(result)
 		handle_menu_change(MENUS.RESULT)
-
+		
 		# stop level resources
-		levelTimer.stop()
-		musicPlayer.stop()
+		if !isPractice:
+			levelTimer.stop()
+			musicPlayer.stop()
 
 #endregion
 
@@ -226,6 +230,9 @@ func handle_return_to_menu() -> void:
 	# disconnect current level
 	disconnect_level()
 	
+	# play menu music
+	musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
+	
 	if isPractice:
 		handle_menu_change(MENUS.PRACTICE)
 	else:
@@ -244,7 +251,8 @@ func handle_reset_stage() -> void:
 	currentMenu.visible = false
 	
 	# start the timer
-	levelTimer.start()
+	if !isPractice:
+		levelTimer.start()
 	musicPlayer.play_music(MusicPlayer.MUSIC.LEVEL)
 
 
@@ -389,6 +397,7 @@ func handle_toggle_tutorial(on: bool) -> void:
 
 func _on_level_timer_timeout():
 	get_tree().paused = true
+	failureMenu.set_title("TIMED OUT!")
 	handle_level_failed()
 
 #endregion

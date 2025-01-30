@@ -18,7 +18,7 @@ script = ExtResource("1_2m2bl")
 [node name="Panel4" parent="PlatformParent" instance=ExtResource("3_yy1ly")]
 position = Vector2(871, 77)
 rotation = -0.785398
-durability = 1
+durability = 2
 
 [node name="Player" parent="." instance=ExtResource("4_xskrf")]
 

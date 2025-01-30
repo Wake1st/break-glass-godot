@@ -35,12 +35,6 @@ func _ready() -> void:
 		platform.platform_broken.connect(handle_platform_broken)
 
 
-###	DEV-ONLY: Skips the level 
-func _input(event: InputEvent) -> void:
-	if OS.is_debug_build() and event.is_action_pressed("debug_level_skip"):
-		handle_goal_crossed()
-
-
 func handle_platform_broken() -> void:
 	platformsBroken += 1
 
@@ -57,3 +51,10 @@ func handle_goal_crossed() -> void:
 func _on_endtimer_timeout() -> void:
 	get_tree().paused = true
 	level_finished.emit(platformsBroken)
+
+
+
+###	DEV-ONLY: Skips the level 
+func _input(event: InputEvent) -> void:
+	if OS.is_debug_build() and event.is_action_pressed("debug_level_skip"):
+		handle_goal_crossed()
