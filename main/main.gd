@@ -104,7 +104,6 @@ func handle_intro_animation_finish() -> void:
 func start_practice_animation() -> void:
 	musicPlayer.stop()
 	practiceMenu.visible = false
-	
 	get_tree().paused = false
 	practiceAnimation.run()
 
@@ -155,8 +154,6 @@ func handle_menu_selected() -> void:
 		handle_menu_change(MENUS.PRACTICE)
 	else:
 		handle_menu_change(MENUS.PLAY)
-		
-		# play menu music
 		musicPlayer.play_music(MusicPlayer.MUSIC.BASE)
 
 
@@ -165,7 +162,11 @@ func handle_level_failed() -> void:
 		handle_menu_change(MENUS.PRACTICE_RESULT)
 	else:
 		handle_menu_change(MENUS.FAILURE)
-		musicPlayer.stop()
+		
+		# stop level resources
+		if !isPractice:
+			levelTimer.stop()
+			musicPlayer.stop()
 
 
 func handle_level_finished(platformsBroken: int) -> void:
