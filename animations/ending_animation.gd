@@ -2,17 +2,11 @@ class_name EndingAnimation
 extends Node2D
 
 @onready var stageTimer = $StageTimer
-@onready var audio = $AudioStreamPlayer
+@onready var audio = $Champ
+@onready var music = $Music
 @onready var end = $End
 
 var stage: int = 0
-
-
-var play:bool = true
-func _process(delta):
-	if play:
-		play = false
-		run()
 
 
 func run() -> void:
@@ -37,7 +31,7 @@ func _on_stage_timer_timeout():
 
 
 func stage_0() -> void:
-	stageTimer.start(0.8)
+	stageTimer.start(0.6)
 
 
 func stage_1() -> void:
@@ -47,3 +41,4 @@ func stage_1() -> void:
 
 func stage_2() -> void:
 	end.visible = true
+	music.play()

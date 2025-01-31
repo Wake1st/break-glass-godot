@@ -265,6 +265,9 @@ func handle_next_level() -> void:
 	# check for ending
 	if currentLevelId > 16:
 		endingAnimation.run()
+		currentMenu.visible = false
+		get_tree().paused = false
+		return
 	
 	# setup new level
 	var scene = LevelList.levels[currentLevelId]

@@ -1,16 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlkaxvf0g0epw"]
+[gd_scene load_steps=5 format=3 uid="uid://dlkaxvf0g0epw"]
 
 [ext_resource type="Script" path="res://animations/ending_animation.gd" id="1_b2u7o"]
 [ext_resource type="Texture2D" uid="uid://b5kmvsdyee2ib" path="res://assets/images/the end.png" id="1_d7gke"]
 [ext_resource type="AudioStream" uid="uid://cj2d0hts1wyuo" path="res://assets/voice/champ.mp3" id="1_fg7jt"]
+[ext_resource type="AudioStream" uid="uid://t1misoq250o0" path="res://assets/music/BreakGlass-Level.ogg" id="3_xjl5k"]
 
 [node name="EndingAnimation" type="Node2D"]
 script = ExtResource("1_b2u7o")
 
 [node name="StageTimer" type="Timer" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Champ" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_fg7jt")
+volume_db = 1.4
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xjl5k")
 
 [node name="End" type="Sprite2D" parent="."]
 visible = false
