@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlkaxvf0g0epw"]
+
+[ext_resource type="Script" path="res://animations/ending_animation.gd" id="1_b2u7o"]
+[ext_resource type="Texture2D" uid="uid://b5kmvsdyee2ib" path="res://assets/images/the end.png" id="1_d7gke"]
+[ext_resource type="AudioStream" uid="uid://cj2d0hts1wyuo" path="res://assets/voice/champ.mp3" id="1_fg7jt"]
+
+[node name="EndingAnimation" type="Node2D"]
+script = ExtResource("1_b2u7o")
+
+[node name="StageTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_fg7jt")
+
+[node name="End" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(572, 324)
+scale = Vector2(4.84375, 4.84375)
+texture = ExtResource("1_d7gke")
+
+[connection signal="timeout" from="StageTimer" to="." method="_on_stage_timer_timeout"]

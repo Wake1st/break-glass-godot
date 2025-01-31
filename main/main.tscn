@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmumsdf3nd4u7"]
+[gd_scene load_steps=16 format=3 uid="uid://cmumsdf3nd4u7"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_075jk"]
 [ext_resource type="PackedScene" uid="uid://cis2v5tvol316" path="res://ui/game_menus/main_menu.tscn" id="2_64sp3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://3c6hq4pp2wwj" path="res://main/music_player.tscn" id="9_hrugw"]
 [ext_resource type="PackedScene" uid="uid://b3ffk0nfiqktt" path="res://animations/intro_animation.tscn" id="11_fdss0"]
 [ext_resource type="PackedScene" uid="uid://crqsag6abhcy5" path="res://animations/practice_animation.tscn" id="12_jsj1p"]
+[ext_resource type="PackedScene" uid="uid://dlkaxvf0g0epw" path="res://animations/ending_animation.tscn" id="15_nttl3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_075jk")
@@ -80,6 +81,9 @@ visible = false
 visible = false
 
 [node name="PracticeAnimation" parent="." instance=ExtResource("12_jsj1p")]
+visible = false
+
+[node name="EndingAnimation" parent="." instance=ExtResource("15_nttl3")]
 visible = false
 
 [connection signal="timeout" from="Misc/LevelTimer" to="." method="_on_level_timer_timeout"]

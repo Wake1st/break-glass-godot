@@ -34,6 +34,7 @@ const LAST_LEVEL_ID: int = 16
 
 @onready var introAnimation: IntroAnimation = $IntroAnimation
 @onready var practiceAnimation: PracticeAnimation = $PracticeAnimation
+@onready var endingAnimation: EndingAnimation = $EndingAnimation
 
 var currentMenu: Panel
 var currentLevel: Level
@@ -260,6 +261,10 @@ func handle_next_level() -> void:
 	disconnect_level()
 	
 	currentLevelId += 1
+	
+	# check for ending
+	if currentLevelId > 16:
+		endingAnimation.run()
 	
 	# setup new level
 	var scene = LevelList.levels[currentLevelId]
