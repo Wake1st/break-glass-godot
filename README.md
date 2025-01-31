@@ -43,6 +43,10 @@ This games was made using the [bevy new 2D](https://the-bevy-flock.itch.io/bevy-
 - Joel Wakefield
 
 ### Tools
+- [Godot](https://godotengine.org/)
+- [Aseprite](https://www.aseprite.org/)
+- [Piskel](https://www.piskelapp.com/)
 - [Audacity](https://www.audacityteam.org/)
 - [Beep Box](https://www.beepbox.co)
+- [jsfxr](https://sfxr.me/)
 - [Free Convert](https://www.freeconvert.com>)
